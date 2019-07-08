@@ -40,7 +40,6 @@ class Level1: UIViewController {
         // Hides the second label
         
         label2.isHidden = true
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -262,6 +261,28 @@ class Level1: UIViewController {
                     oscillator2.amplitude = 0.5
                     oscillator2.frequency = 200
                     oscillator2.start()
+                    
+                    // Two cases
+                    // Finger is outside the line and inside the second element: great! Level completed
+                    // Finger is outside the line but outside the second element: restart
+                    
+                    let firstElementMaxX = label1.frame.maxX
+                    let firstElementMinX = label1.frame.minX
+                    let firstElementMaxY = label1.frame.maxY
+                    let firstElementMinY = label1.frame.minY
+                    
+                    if (initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
+                        initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY) {
+                        print("Last point is inside element")
+                        
+                        UIAccessibility.post(notification: .announcement, argument: "Level 1 completed")
+                        
+                    } else {
+                        print("Last point is outside element")
+                        
+                        startGame()
+                    }
+
                 }
             }
         }
@@ -272,6 +293,6 @@ class Level1: UIViewController {
     func normalize(num: Double) -> Double {
         let min = Double(label1.frame.maxX + 10)
         let max = Double(label2.frame.minX - 10)
-        return 2*((num - min)/(max - min))-1
+        return 2 * ((num - min) / (max - min)) - 1
     }
 }
