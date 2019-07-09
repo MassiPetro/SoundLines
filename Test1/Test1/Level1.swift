@@ -155,8 +155,8 @@ class Level1: UIViewController {
     
     func createLine() -> Void {
         
-        let firstElementMaxX = label1.frame.maxX + 10
-        let secondElementMinX = label2.frame.minX - 10
+        let firstElementMaxX = label1.frame.maxX
+        let secondElementMinX = label2.frame.minX
         
         let shapeWidth: CGFloat = secondElementMinX - firstElementMaxX
         let shapeHeight: CGFloat = label1.frame.height
@@ -203,7 +203,7 @@ class Level1: UIViewController {
         
         // Updates the position for the .began, .changed, and .ended states
         
-        if gestureRecognizer.state != .cancelled {
+        if gestureRecognizer.state == .changed {
             print(initialPoint)
             
             if gameStarted == true {
@@ -233,7 +233,7 @@ class Level1: UIViewController {
                     let minY = y - 5
                     let maxY = y + 5
                     
-                    let middleLineX = label1.frame.maxX + 10..<label2.frame.minX - 10
+                    let middleLineX = label1.frame.maxX..<label2.frame.minX
                     let middleLineY = minY..<maxY
                     
                     // 2. At the center of the line
@@ -274,18 +274,25 @@ class Level1: UIViewController {
                     if (initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
                         initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY) {
                         print("Last point is inside element")
-                        
+                        oscillator.stop()
+                        oscillator2.stop()
                         UIAccessibility.post(notification: .announcement, argument: "Level 1 completed")
                         
                     } else {
                         print("Last point is outside element")
-                        
                         startGame()
                     }
 
                 }
             }
+        } else if gestureRecognizer.state == .ended {
+            oscillatorMid.stop()
+            oscillator.stop()
+            oscillator2.stop()
+            print("Pan released")
+            startGame()
         }
+        
     }
     
     // Normalizes double values for AudioKit panner
