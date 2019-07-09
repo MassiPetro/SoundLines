@@ -195,6 +195,8 @@ class Level1: UIViewController {
     @IBAction func panDetector(_ gestureRecognizer: UIPanGestureRecognizer) {
         print("panDetector")
         
+        var levelComplete = true
+        
         // Saves the point touched by the user
         
         let initialPoint = gestureRecognizer.location(in: view)
@@ -245,7 +247,7 @@ class Level1: UIViewController {
 
                         panner.pan = normalize(num: Double(initialPoint.x))
                         
-                        oscillatorMid.baseFrequency = 500
+                        oscillatorMid.baseFrequency = Double(initialPoint.y)
                         oscillatorMid.start()
                     } else {
                         panner.pan = 0.0
@@ -274,6 +276,7 @@ class Level1: UIViewController {
                     if (initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
                         initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY) {
                         print("Last point is inside element")
+                        levelComplete = false
                         oscillator.stop()
                         oscillator2.stop()
                         UIAccessibility.post(notification: .announcement, argument: "Level 1 completed")
@@ -285,7 +288,7 @@ class Level1: UIViewController {
 
                 }
             }
-        } else if gestureRecognizer.state == .ended {
+        } else if gestureRecognizer.state == .ended && levelComplete != false {
             oscillatorMid.stop()
             oscillator.stop()
             oscillator2.stop()
