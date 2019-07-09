@@ -195,8 +195,6 @@ class Level1: UIViewController {
     @IBAction func panDetector(_ gestureRecognizer: UIPanGestureRecognizer) {
         print("panDetector")
         
-        var levelCompleted = false
-        
         // Saves the point touched by the user
         
         let initialPoint = gestureRecognizer.location(in: view)
@@ -205,10 +203,10 @@ class Level1: UIViewController {
         
         // Updates the position for the .began, .changed, and .ended states
         
-        if gestureRecognizer.state == .changed {
-            print(initialPoint)
-            
-            if gameStarted == true {
+        if gameStarted == true {
+            if gestureRecognizer.state == .changed {
+                print(initialPoint)
+                
                 let firstLevelRect = firstLevelShape.getCGRect()
                 
                 // Distinguishes 3 cases based on the finger position:
@@ -277,23 +275,21 @@ class Level1: UIViewController {
                         initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY) {
                         print("Last point is inside element")
                         
-                        levelCompleted = true
-                        
                         oscillator.stop()
                         oscillator2.stop()
+                        gameStarted = false
                         UIAccessibility.post(notification: .announcement, argument: "Level 1 completed")
                         
                     } else {
                         print("Last point is outside element")
                         startGame()
                     }
+                    
                 }
             }
-        }
-        
-        if gestureRecognizer.state == .ended {
             
-            if levelCompleted == false {
+            if gestureRecognizer.state == .ended {
+                
                 print("Pan released")
             
                 startGame()
