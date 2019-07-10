@@ -22,7 +22,7 @@ class Level1: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Creates AudioKit mixer and panner
         
         let mixer = AKMixer(oscillator, oscillatorMid,oscillator2)
@@ -69,15 +69,15 @@ class Level1: UIViewController {
         
         // Adds tap gesture recognizer on the first element
         
-        let tapped1 = UITapGestureRecognizer(target: self, action: #selector(firstElementSelected))
-        label1.isUserInteractionEnabled = true
-        label1.addGestureRecognizer(tapped1)
+        //let tapped1 = UITapGestureRecognizer(target: self, action: #selector(firstElementSelected))
+        //label1.isUserInteractionEnabled = true
+        //label1.addGestureRecognizer(tapped1)
         
         // Adds tap gesture recognizer on the second element
         
-        let tapped2 = UITapGestureRecognizer(target: self, action: #selector(secondElementSelected))
-        label2.isUserInteractionEnabled = true
-        label2.addGestureRecognizer(tapped2)
+        //let tapped2 = UITapGestureRecognizer(target: self, action: #selector(secondElementSelected))
+        //label2.isUserInteractionEnabled = true
+        //label2.addGestureRecognizer(tapped2)
         
         // Tell the user to find the first element
         
@@ -94,62 +94,62 @@ class Level1: UIViewController {
     
     var firstElementTapCounter: Int = 0
     
-    @objc func firstElementSelected(sender: UITapGestureRecognizer) {
-
-        firstElementTapCounter = firstElementTapCounter + 1
-        
-        print("firstElementSelected")
-        print("firstElementTapCounter: ", firstElementTapCounter)
-        
-        // If it is the first time finding the first element tell the user it has been found
-        // and show the second element
-        // else tell the user it is the first element
-        
-        if (firstElementTapCounter == 1) {
-            print("firstElement: first tap")
-            UIAccessibility.post(notification: .announcement, argument: "You found the cat! Find the kitten")
-            
-            // Show the second element
-            
-            label2.isHidden = false
-        } else {
-            print("firstElement: tap")
-            UIAccessibility.post(notification: .announcement, argument: "Cat")
-        }
-    }
+    /*@objc func firstElementSelected(sender: UITapGestureRecognizer) {
+     
+     firstElementTapCounter = firstElementTapCounter + 1
+     
+     print("firstElementSelected")
+     print("firstElementTapCounter: ", firstElementTapCounter)
+     
+     // If it is the first time finding the first element tell the user it has been found
+     // and show the second element
+     // else tell the user it is the first element
+     
+     if (firstElementTapCounter == 1) {
+     print("firstElement: first tap")
+     UIAccessibility.post(notification: .announcement, argument: "You found the cat! Find the kitten")
+     
+     // Show the second element
+     
+     label2.isHidden = false
+     } else {
+     print("firstElement: tap")
+     UIAccessibility.post(notification: .announcement, argument: "Cat")
+     }
+     }*/
     
     // Detects tapping on the second element
     
     var secondElementTapCounter: Int = 0
     
-    @objc func secondElementSelected(sender: UITapGestureRecognizer) {
-        secondElementTapCounter = secondElementTapCounter + 1
-
-        print("secondElementSelected")
-        print("secondElementTapCounter: ", secondElementTapCounter)
-        
-        // If it is the first time finding the second element tell the user it has been found
-        // and create the line
-        // else tell the user it is the second element
-        
-        if (secondElementTapCounter == 1) {
-            print("secondElement: first tap")
-            UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Now connect it to the cat")
-            
-            // Create the line
-            
-            createLine()
-            
-            // Start the game
-            
-            gameStarted = true
-            startGame()
-        } else {
-            print("secondElement: tap")
-            UIAccessibility.post(notification: .announcement, argument: "Kitten")
-        }
-    
-    }
+    /*@objc func secondElementSelected(sender: UITapGestureRecognizer) {
+     secondElementTapCounter = secondElementTapCounter + 1
+     
+     print("secondElementSelected")
+     print("secondElementTapCounter: ", secondElementTapCounter)
+     
+     // If it is the first time finding the second element tell the user it has been found
+     // and create the line
+     // else tell the user it is the second element
+     
+     if (secondElementTapCounter == 1) {
+     print("secondElement: first tap")
+     UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Now connect it to the cat")
+     
+     // Create the line
+     
+     createLine()
+     
+     // Start the game
+     
+     gameStarted = true
+     startGame()
+     } else {
+     print("secondElement: tap")
+     UIAccessibility.post(notification: .announcement, argument: "Kitten")
+     }
+     
+     }*/
     
     // Sets the line location and dimension:
     // it is located between the first element and the second element
@@ -192,7 +192,7 @@ class Level1: UIViewController {
         } else {
             UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
         }
-                
+        
         // Adds panning gesture recognizer on the shape
         
         let panning = UIPanGestureRecognizer(target: self, action: #selector(panDetector(_:)))
@@ -212,6 +212,72 @@ class Level1: UIViewController {
         guard gestureRecognizer.view != nil else {return}
         
         // Updates the position for the .began, .changed, and .ended states
+        
+        let firstElementMaxX = label1.frame.maxX
+        let firstElementMinX = label1.frame.minX
+        let firstElementMaxY = label1.frame.maxY
+        let firstElementMinY = label1.frame.minY
+        
+        let secondElementMaxX = label2.frame.maxX
+        let secondElementMinX = label2.frame.minX
+        let secondElementMaxY = label2.frame.maxY
+        let secondElementMinY = label2.frame.minY
+        
+        if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
+            initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY {
+            
+            firstElementTapCounter = firstElementTapCounter + 1
+            
+            print("firstElementSelected")
+            print("firstElementTapCounter: ", firstElementTapCounter)
+            
+            // If it is the first time finding the first element tell the user it has been found
+            // and show the second element
+            // else tell the user it is the first element
+            
+            if (firstElementTapCounter == 1) {
+                print("firstElement: first tap")
+                UIAccessibility.post(notification: .announcement, argument: "You found the cat! Find the kitten")
+                
+                // Show the second element
+                
+                label2.isHidden = false
+            } else {
+                print("firstElement: tap")
+                UIAccessibility.post(notification: .announcement, argument: "Cat")
+            }
+        }
+        
+        if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
+            initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
+            
+            secondElementTapCounter = secondElementTapCounter + 1
+            
+            print("secondElementSelected")
+            print("secondElementTapCounter: ", secondElementTapCounter)
+            
+            // If it is the first time finding the second element tell the user it has been found
+            // and create the line
+            // else tell the user it is the second element
+            
+            if (secondElementTapCounter == 1) {
+                print("secondElement: first tap")
+                UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Now connect it to the cat")
+                
+                // Create the line
+                
+                createLine()
+                
+                // Start the game
+                
+                gameStarted = true
+                startGame()
+            } else {
+                print("secondElement: tap")
+                UIAccessibility.post(notification: .announcement, argument: "Kitten")
+            }
+            
+        }
         
         if gameStarted == true {
             if gestureRecognizer.state == .changed {
@@ -247,12 +313,12 @@ class Level1: UIViewController {
                     let middleLineY = minY..<maxY
                     
                     // 2. At the center of the line
-         
+                    
                     if(middleLineX.contains(initialPoint.x) && middleLineY.contains(initialPoint.y)) {
                         print("Inside the middle line")
                         oscillator.stop()
                         oscillator2.stop()
-
+                        
                         panner.pan = normalize(num: Double(initialPoint.x))
                         
                         oscillatorMid.baseFrequency = Double(initialPoint.y)
@@ -276,11 +342,6 @@ class Level1: UIViewController {
                     // Finger is outside the line and inside the second element: great! Level completed
                     // Finger is outside the line but outside the second element: restart
                     
-                    let firstElementMaxX = label1.frame.maxX
-                    let firstElementMinX = label1.frame.minX
-                    let firstElementMaxY = label1.frame.maxY
-                    let firstElementMinY = label1.frame.minY
-                    
                     if (initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
                         initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY) {
                         print("Last point is inside element")
@@ -301,10 +362,10 @@ class Level1: UIViewController {
             if gestureRecognizer.state == .ended {
                 
                 print("Pan released")
-            
+                
                 startGame()
             }
-         }
+        }
         
     }
     
