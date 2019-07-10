@@ -82,7 +82,7 @@ class Level1: UIViewController {
         // Tell the user to find the first element
         
         if gameStarted == false {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                 UIAccessibility.post(notification: .announcement, argument: "Find the cat")
             })
         }
@@ -188,7 +188,7 @@ class Level1: UIViewController {
         // Tell the user to follow the line
         
         if gameStartedCounter == 1 {
-            UIAccessibility.post(notification: .announcement, argument: "Connect kitten to cat: follow the line")
+            UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Follow the line to connect it to the cat")
         } else {
             UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
         }
