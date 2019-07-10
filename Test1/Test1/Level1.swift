@@ -81,9 +81,11 @@ class Level1: UIViewController {
         
         // Tell the user to find the first element
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-            UIAccessibility.post(notification: .announcement, argument: "Find the cat")
-        })
+        if gameStarted == false {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+                UIAccessibility.post(notification: .announcement, argument: "Find the cat")
+            })
+        }
     }
     
     // Detects tapping on the first element
@@ -176,13 +178,21 @@ class Level1: UIViewController {
     
     // Start the game: the user has to connect the two elements following the line
     
+    var gameStartedCounter: Int = 0
+    
     func startGame() -> Void {
         print("startGame")
         
+        gameStartedCounter = gameStartedCounter + 1
+        
         // Tell the user to follow the line
         
-        UIAccessibility.post(notification: .announcement, argument: "Follow the line")
-        
+        if gameStartedCounter == 1 {
+            UIAccessibility.post(notification: .announcement, argument: "Connect kitten to cat: follow the line")
+        } else {
+            UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
+        }
+                
         // Adds panning gesture recognizer on the shape
         
         let panning = UIPanGestureRecognizer(target: self, action: #selector(panDetector(_:)))
@@ -294,7 +304,7 @@ class Level1: UIViewController {
             
                 startGame()
             }
-        }
+         }
         
     }
     
