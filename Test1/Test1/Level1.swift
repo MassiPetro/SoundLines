@@ -69,89 +69,14 @@ class Level1: UIViewController {
         // When both are found create the line
         // If the second element has been reached, go to the next level
         
-        // Adds tap gesture recognizer on the first element
-        
-        //let tapped1 = UITapGestureRecognizer(target: self, action: #selector(firstElementSelected))
-        //label1.isUserInteractionEnabled = true
-        //label1.addGestureRecognizer(tapped1)
-        
-        // Adds tap gesture recognizer on the second element
-        
-        //let tapped2 = UITapGestureRecognizer(target: self, action: #selector(secondElementSelected))
-        //label2.isUserInteractionEnabled = true
-        //label2.addGestureRecognizer(tapped2)
-        
         // Tell the user to find the first element
         
         if gameStarted == false {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
                 UIAccessibility.post(notification: .announcement, argument: "Find the cat")
             })
         }
     }
-    
-    // Detects tapping on the first element
-    // If tapped show second element and tell the user to find it
-    // If the gameCanStart variable is true starts the panning detection
-    
-    //var firstElementTapCounter: Int = 0
-    
-    /*@objc func firstElementSelected(sender: UITapGestureRecognizer) {
-     
-     firstElementTapCounter = firstElementTapCounter + 1
-     
-     print("firstElementSelected")
-     print("firstElementTapCounter: ", firstElementTapCounter)
-     
-     // If it is the first time finding the first element tell the user it has been found
-     // and show the second element
-     // else tell the user it is the first element
-     
-     if (firstElementTapCounter == 1) {
-     print("firstElement: first tap")
-     UIAccessibility.post(notification: .announcement, argument: "You found the cat! Find the kitten")
-     
-     // Show the second element
-     
-     label2.isHidden = false
-     } else {
-     print("firstElement: tap")
-     UIAccessibility.post(notification: .announcement, argument: "Cat")
-     }
-     }*/
-    
-    // Detects tapping on the second element
-    
-    var secondElementTapCounter: Int = 0
-    
-    /*@objc func secondElementSelected(sender: UITapGestureRecognizer) {
-     secondElementTapCounter = secondElementTapCounter + 1
-     
-     print("secondElementSelected")
-     print("secondElementTapCounter: ", secondElementTapCounter)
-     
-     // If it is the first time finding the second element tell the user it has been found
-     // and create the line
-     // else tell the user it is the second element
-     
-     if (secondElementTapCounter == 1) {
-     print("secondElement: first tap")
-     UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Now connect it to the cat")
-     
-     // Create the line
-     
-     createLine()
-     
-     // Start the game
-     
-     gameStarted = true
-     startGame()
-     } else {
-     print("secondElement: tap")
-     UIAccessibility.post(notification: .announcement, argument: "Kitten")
-     }
-     
-     }*/
     
     // Sets the line location and dimension:
     // it is located between the first element and the second element
@@ -225,7 +150,6 @@ class Level1: UIViewController {
         let secondElementMaxY = label2.frame.maxY
         let secondElementMinY = label2.frame.minY
         
-        
         if gameStarted == false {
         
             if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
@@ -235,18 +159,23 @@ class Level1: UIViewController {
                 // and show the second element
                 // else tell the user it is the first element
                 
-                
                 print("firstElement: first tap")
                 UIAccessibility.post(notification: .announcement, argument: "You found the cat! Find the kitten")
                 
-                firstElementShown = true
-                
                 // Show the second element
                 
+                firstElementShown = true
                 label2.isHidden = false
             }
         
             if firstElementShown == true {
+                
+                if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
+                    initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY {
+                    
+                    print("firstElement: tap")
+                    UIAccessibility.post(notification: .announcement, argument: "Cat")
+                }
                 
                 if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
                     initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
@@ -266,27 +195,17 @@ class Level1: UIViewController {
                     
                     gameStarted = true
                     startGame()
-                    
                 }
             }
         }
         
         if gameStarted == true {
             
-            if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
-                initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY {
-                
-                print("firstElement: tap")
-                UIAccessibility.post(notification: .announcement, argument: "Cat")
-                
-            }
-            
             if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
                 initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
-            
+                
                 print("secondElement: tap")
                 UIAccessibility.post(notification: .announcement, argument: "Kitten")
-            
             }
             
             if gestureRecognizer.state == .changed {
@@ -357,7 +276,9 @@ class Level1: UIViewController {
                         
                         oscillator.stop()
                         oscillator2.stop()
+                        
                         gameStarted = false
+                        
                         UIAccessibility.post(notification: .announcement, argument: "Level 1 completed")
                         
                     } else {
@@ -366,19 +287,16 @@ class Level1: UIViewController {
                         UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
                         startGame()
                     }
-                    
                 }
             }
             
             if gestureRecognizer.state == .ended {
-                
                 print("Pan released")
                 print("restart game")
                 UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
                 startGame()
             }
         }
-        
     }
     
     // Normalizes double values for AudioKit panner
