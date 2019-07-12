@@ -150,6 +150,8 @@ class Level1: UIViewController {
         let secondElementMaxY = label2.frame.maxY
         let secondElementMinY = label2.frame.minY
         
+        var levelComplete = false
+        
         if gameStarted == false {
         
             if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
@@ -279,7 +281,7 @@ class Level1: UIViewController {
                         
                         gameStarted = false
                         
-                        UIAccessibility.post(notification: .announcement, argument: "Level 1 completed")
+                        levelComplete = true
                         
                     } else {
                         print("Last point is outside element")
@@ -296,6 +298,10 @@ class Level1: UIViewController {
                 UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
                 startGame()
             }
+        }
+        
+        if levelComplete == true {
+            UIAccessibility.post(notification: .announcement, argument: "Level 1 completed")
         }
     }
     
