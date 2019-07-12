@@ -92,7 +92,7 @@ class Level1: UIViewController {
     // If tapped show second element and tell the user to find it
     // If the gameCanStart variable is true starts the panning detection
     
-    var firstElementTapCounter: Int = 0
+    //var firstElementTapCounter: Int = 0
     
     /*@objc func firstElementSelected(sender: UITapGestureRecognizer) {
      
@@ -223,44 +223,31 @@ class Level1: UIViewController {
         let secondElementMaxY = label2.frame.maxY
         let secondElementMinY = label2.frame.minY
         
-        if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
-            initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY {
-            
-            firstElementTapCounter = firstElementTapCounter + 1
-            
-            print("firstElementSelected")
-            print("firstElementTapCounter: ", firstElementTapCounter)
-            
-            // If it is the first time finding the first element tell the user it has been found
-            // and show the second element
-            // else tell the user it is the first element
-            
-            if (firstElementTapCounter == 1) {
+        if gameStarted == false {
+        
+            if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
+                initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY {
+                
+                // If it is the first time finding the first element tell the user it has been found
+                // and show the second element
+                // else tell the user it is the first element
+                
+                
                 print("firstElement: first tap")
                 UIAccessibility.post(notification: .announcement, argument: "You found the cat! Find the kitten")
                 
                 // Show the second element
                 
                 label2.isHidden = false
-            } else {
-                print("firstElement: tap")
-                UIAccessibility.post(notification: .announcement, argument: "Cat")
             }
-        }
         
-        if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
-            initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
-            
-            secondElementTapCounter = secondElementTapCounter + 1
-            
-            print("secondElementSelected")
-            print("secondElementTapCounter: ", secondElementTapCounter)
-            
-            // If it is the first time finding the second element tell the user it has been found
-            // and create the line
-            // else tell the user it is the second element
-            
-            if (secondElementTapCounter == 1) {
+            if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
+                initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
+                
+                // If it is the first time finding the second element tell the user it has been found
+                // and create the line
+                // else tell the user it is the second element
+                
                 print("secondElement: first tap")
                 UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Now connect it to the cat")
                 
@@ -272,14 +259,28 @@ class Level1: UIViewController {
                 
                 gameStarted = true
                 startGame()
-            } else {
-                print("secondElement: tap")
-                UIAccessibility.post(notification: .announcement, argument: "Kitten")
+                
             }
-            
         }
         
         if gameStarted == true {
+            
+            if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
+                initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY {
+                
+                print("firstElement: tap")
+                UIAccessibility.post(notification: .announcement, argument: "Cat")
+                
+            }
+            
+            if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
+                initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
+            
+                print("secondElement: tap")
+                UIAccessibility.post(notification: .announcement, argument: "Kitten")
+            
+            }
+            
             if gestureRecognizer.state == .changed {
                 print(initialPoint)
                 
