@@ -23,6 +23,8 @@ class Level1: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.setHidesBackButton(true, animated:true);
+        
         // Creates AudioKit mixer and panner
         
         let mixer = AKMixer(oscillator, oscillatorMid,oscillator2)
@@ -189,8 +191,6 @@ class Level1: UIViewController {
         
         if gameStartedCounter == 1 {
             UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Follow the line to connect it to the cat")
-        } else {
-            UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
         }
         
         // Adds panning gesture recognizer on the shape
@@ -362,6 +362,8 @@ class Level1: UIViewController {
                         
                     } else {
                         print("Last point is outside element")
+                        print("restart game")
+                        UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
                         startGame()
                     }
                     
@@ -371,7 +373,8 @@ class Level1: UIViewController {
             if gestureRecognizer.state == .ended {
                 
                 print("Pan released")
-                
+                print("restart game")
+                UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
                 startGame()
             }
         }
