@@ -200,6 +200,8 @@ class Level1: UIViewController {
         firstLevelShape.addGestureRecognizer(panning)
     }
     
+    var firstElementShown = false
+    
     // Detects panning on the shape and adds sonification based on the finger position
     
     @IBAction func panDetector(_ gestureRecognizer: UIPanGestureRecognizer) {
@@ -223,6 +225,7 @@ class Level1: UIViewController {
         let secondElementMaxY = label2.frame.maxY
         let secondElementMinY = label2.frame.minY
         
+        
         if gameStarted == false {
         
             if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
@@ -236,30 +239,35 @@ class Level1: UIViewController {
                 print("firstElement: first tap")
                 UIAccessibility.post(notification: .announcement, argument: "You found the cat! Find the kitten")
                 
+                firstElementShown = true
+                
                 // Show the second element
                 
                 label2.isHidden = false
             }
         
-            if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
-                initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
+            if firstElementShown == true {
                 
-                // If it is the first time finding the second element tell the user it has been found
-                // and create the line
-                // else tell the user it is the second element
-                
-                print("secondElement: first tap")
-                UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Now connect it to the cat")
-                
-                // Create the line
-                
-                createLine()
-                
-                // Start the game
-                
-                gameStarted = true
-                startGame()
-                
+                if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
+                    initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
+                    
+                    // If it is the first time finding the second element tell the user it has been found
+                    // and create the line
+                    // else tell the user it is the second element
+                    
+                    print("secondElement: first tap")
+                    UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Now connect it to the cat")
+                    
+                    // Create the line
+                    
+                    createLine()
+                    
+                    // Start the game
+                    
+                    gameStarted = true
+                    startGame()
+                    
+                }
             }
         }
         
