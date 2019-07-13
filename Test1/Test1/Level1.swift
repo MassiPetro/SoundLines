@@ -103,28 +103,6 @@ class Level1: UIViewController {
         self.view.addSubview(firstLevelShape)
     }
     
-    // Start the game: the user has to connect the two elements following the line
-    
-    var gameStartedCounter: Int = 0
-    
-    func startGame() -> Void {
-        print("startGame")
-        
-        gameStartedCounter = gameStartedCounter + 1
-        
-        // Tell the user to follow the line
-        
-        if gameStartedCounter == 1 {
-            UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Follow the line to connect it to the cat")
-        }
-        
-        // Adds panning gesture recognizer on the shape
-        
-        let panning = UIPanGestureRecognizer(target: self, action: #selector(panDetector(_:)))
-        firstLevelShape.isUserInteractionEnabled = true
-        firstLevelShape.addGestureRecognizer(panning)
-    }
-    
     var firstElementShown: Bool = false
     var levelComplete: Bool = false
     
@@ -174,13 +152,6 @@ class Level1: UIViewController {
                 if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
                     initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
                     
-                    // If it is the first time finding the second element tell the user it has been found
-                    // and create the line
-                    // else tell the user it is the second element
-                    
-                    print("secondElement: first tap")
-                    UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Now connect it to the cat")
-                    
                     // Create the line
                     
                     createLine()
@@ -188,7 +159,6 @@ class Level1: UIViewController {
                     // Start the game
                     
                     gameStarted = true
-                    startGame()
                 }
             }
         }
@@ -286,7 +256,6 @@ class Level1: UIViewController {
                         print("Last point is outside element")
                         print("restart game")
                         UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
-                        startGame()
                     }
                 }
             }
@@ -295,7 +264,6 @@ class Level1: UIViewController {
                 print("Pan released")
                 print("restart game")
                 UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
-                startGame()
             }
         }
         
