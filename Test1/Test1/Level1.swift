@@ -152,6 +152,8 @@ class Level1: UIViewController {
                 if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
                     initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
                     
+                    UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Follow the line to connect the kitten to the cat")
+                    
                     // Create the line
                     
                     createLine()
@@ -252,7 +254,8 @@ class Level1: UIViewController {
                         
                         levelComplete = true
                         
-                    } else {
+                    } else if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
+                        initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
                         print("Last point is outside element")
                         print("restart game")
                         UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
