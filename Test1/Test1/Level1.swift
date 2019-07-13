@@ -125,7 +125,8 @@ class Level1: UIViewController {
         firstLevelShape.addGestureRecognizer(panning)
     }
     
-    var firstElementShown = false
+    var firstElementShown: Bool = false
+    var levelComplete: Bool = false
     
     // Detects panning on the shape and adds sonification based on the finger position
     
@@ -150,9 +151,7 @@ class Level1: UIViewController {
         let secondElementMaxY = label2.frame.maxY
         let secondElementMinY = label2.frame.minY
         
-        var levelComplete = false
-        
-        if gameStarted == false {
+        if gameStarted == false && levelComplete == false {
         
             if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
                 initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY {
@@ -171,13 +170,6 @@ class Level1: UIViewController {
             }
         
             if firstElementShown == true {
-                
-                if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
-                    initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY {
-                    
-                    print("firstElement: tap")
-                    UIAccessibility.post(notification: .announcement, argument: "Cat")
-                }
                 
                 if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
                     initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
@@ -202,6 +194,13 @@ class Level1: UIViewController {
         }
         
         if gameStarted == true {
+            
+            if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
+                initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY {
+                
+                print("firstElement: tap")
+                UIAccessibility.post(notification: .announcement, argument: "Cat")
+            }
             
             if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
                 initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
