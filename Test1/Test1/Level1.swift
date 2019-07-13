@@ -152,34 +152,23 @@ class Level1: UIViewController {
                 if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
                     initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
                     
+                    print("secondElement: tap")
                     UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Follow the line to connect the kitten to the cat")
                     
-                    // Create the line
-                    
-                    createLine()
-                    
-                    // Start the game
-                    
-                    gameStarted = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        // Create the line
+                        
+                        self.createLine()
+                        
+                        // Start the game
+                        
+                        self.gameStarted = true
+                    })
                 }
             }
         }
         
         if gameStarted == true {
-            
-            if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
-                initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY {
-                
-                print("firstElement: tap")
-                UIAccessibility.post(notification: .announcement, argument: "Cat")
-            }
-            
-            if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
-                initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
-                
-                print("secondElement: tap")
-                UIAccessibility.post(notification: .announcement, argument: "Kitten")
-            }
             
             if gestureRecognizer.state == .changed {
                 print(initialPoint)
@@ -254,8 +243,8 @@ class Level1: UIViewController {
                         
                         levelComplete = true
                         
-                    } else if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
-                        initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
+                    } else if initialPoint.x <= secondElementMinX && initialPoint.x >= secondElementMaxX &&
+                        initialPoint.y <= secondElementMinY && initialPoint.y >= secondElementMaxY {
                         print("Last point is outside element")
                         print("restart game")
                         UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
