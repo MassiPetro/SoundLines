@@ -62,6 +62,9 @@ class Level1: UIViewController {
     var firstElementFound: Bool = false
     var secondElementFound: Bool = false
     
+    var firstElementShown: Bool = false
+    var levelComplete: Bool = false
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -103,9 +106,6 @@ class Level1: UIViewController {
         self.view.addSubview(firstLevelShape)
     }
     
-    var firstElementShown: Bool = false
-    var levelComplete: Bool = false
-    
     // Detects panning on the shape and adds sonification based on the finger position
     
     @IBAction func panDetector(_ gestureRecognizer: UIPanGestureRecognizer) {
@@ -119,20 +119,9 @@ class Level1: UIViewController {
         
         // Updates the position for the .began, .changed, and .ended states
         
-        let firstElementMaxX = label1.frame.maxX
-        let firstElementMinX = label1.frame.minX
-        let firstElementMaxY = label1.frame.maxY
-        let firstElementMinY = label1.frame.minY
-        
-        let secondElementMaxX = label2.frame.maxX
-        let secondElementMinX = label2.frame.minX
-        let secondElementMaxY = label2.frame.maxY
-        let secondElementMinY = label2.frame.minY
-        
         if gameStarted == false && levelComplete == false {
         
-            if initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
-                initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY {
+            if isInsideFirstElement(point: initialPoint) {
                 
                 // If it is the first time finding the first element tell the user it has been found
                 // and show the second element
@@ -149,13 +138,12 @@ class Level1: UIViewController {
         
             if firstElementShown == true {
                 
-                if initialPoint.x >= secondElementMinX && initialPoint.x <= secondElementMaxX &&
-                    initialPoint.y >= secondElementMinY && initialPoint.y <= secondElementMaxY {
+                if isInsideSecondElement(point: initialPoint) {
                     
                     print("secondElement: tap")
                     UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Follow the line to connect the kitten to the cat")
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                         // Create the line
                         
                         self.createLine()
@@ -169,6 +157,10 @@ class Level1: UIViewController {
         }
         
         if gameStarted == true {
+            
+            if isInsideSecondElement(point: initialPoint) {
+                UIAccessibility.post(notification: .announcement, argument: "Kitten")
+            }
             
             if gestureRecognizer.state == .changed {
                 print(initialPoint)
@@ -232,8 +224,7 @@ class Level1: UIViewController {
                     // Finger is outside the line and inside the second element: great! Level completed
                     // Finger is outside the line but outside the second element: restart
                     
-                    if (initialPoint.x >= firstElementMinX && initialPoint.x <= firstElementMaxX &&
-                        initialPoint.y >= firstElementMinY && initialPoint.y <= firstElementMaxY) {
+                    if isInsideFirstElement(point: initialPoint) {
                         print("Last point is inside element")
                         
                         oscillator.stop()
@@ -243,8 +234,7 @@ class Level1: UIViewController {
                         
                         levelComplete = true
                         
-                    } else if initialPoint.x <= secondElementMinX && initialPoint.x >= secondElementMaxX &&
-                        initialPoint.y <= secondElementMinY && initialPoint.y >= secondElementMaxY {
+                    } else if !isInsideSecondElement(point: initialPoint) {
                         print("Last point is outside element")
                         print("restart game")
                         UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
@@ -262,6 +252,30 @@ class Level1: UIViewController {
         if levelComplete == true {
             UIAccessibility.post(notification: .announcement, argument: "Level 1 completed")
         }
+    }
+    
+    // Returns true if the passed point is inside the first element
+    
+    func isInsideFirstElement(point: CGPoint) -> Bool {
+        let firstElementMaxX = label1.frame.maxX
+        let firstElementMinX = label1.frame.minX
+        let firstElementMaxY = label1.frame.maxY
+        let firstElementMinY = label1.frame.minY
+        
+        return point.x >= firstElementMinX && point.x <= firstElementMaxX &&
+            point.y >= firstElementMinY && point.y <= firstElementMaxY
+    }
+    
+    // Returns true if the passed point is inside the second element
+    
+    func isInsideSecondElement(point: CGPoint) -> Bool {
+        let secondElementMaxX = label2.frame.maxX
+        let secondElementMinX = label2.frame.minX
+        let secondElementMaxY = label2.frame.maxY
+        let secondElementMinY = label2.frame.minY
+        
+        return point.x >= secondElementMinX && point.x <= secondElementMaxX &&
+            point.y >= secondElementMinY && point.y <= secondElementMaxY
     }
     
     // Normalizes double values for AudioKit panner
