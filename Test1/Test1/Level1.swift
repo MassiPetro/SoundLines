@@ -65,6 +65,8 @@ class Level1: UIViewController {
     var firstElementShown: Bool = false
     var levelComplete: Bool = false
     
+    var startingPoint: CGPoint
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -140,6 +142,9 @@ class Level1: UIViewController {
                 
                 if isInsideSecondElement(point: initialPoint) {
                     
+                    startingPoint = initialPoint
+                    print("startingPoint 2: ", startingPoint)
+                    
                     print("secondElement: tap")
                     UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Follow the line to connect the kitten to the cat")
                     
@@ -159,6 +164,9 @@ class Level1: UIViewController {
         if gameStarted == true {
             
             if isInsideSecondElement(point: initialPoint) {
+                startingPoint = initialPoint
+                print("startingPoint 2: ", startingPoint)
+                
                 UIAccessibility.post(notification: .announcement, argument: "Kitten")
             }
             
