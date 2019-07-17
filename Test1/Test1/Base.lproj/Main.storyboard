@@ -105,40 +105,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Kitten" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ik-8Y-Hpl">
-                                <rect key="frame" x="553" y="150" width="94" height="75"/>
-                                <accessibility key="accessibilityConfiguration" hint="Kitten" identifier="Kitten" label="Kitten"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cc-j6-g6m">
-                                <rect key="frame" x="20" y="150" width="49" height="75"/>
-                                <accessibility key="accessibilityConfiguration" hint="Cat" identifier="Cat" label="Cat"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Kitten" translatesAutoresizingMaskIntoConstraints="NO" id="3qd-aL-Oay">
+                                <rect key="frame" x="20" y="123" width="84" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cat" translatesAutoresizingMaskIntoConstraints="NO" id="rM0-B7-cqy">
+                                <rect key="frame" x="542" y="123" width="105" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" allowsDirectInteraction="YES"/>
                             <bool key="isElement" value="YES"/>
                         </accessibility>
-                        <constraints>
-                            <constraint firstItem="5Cc-j6-g6m" firstAttribute="centerY" secondItem="BWL-VK-V8C" secondAttribute="centerY" id="HFQ-7R-Mu1"/>
-                            <constraint firstItem="5Cc-j6-g6m" firstAttribute="baseline" secondItem="3Ik-8Y-Hpl" secondAttribute="baseline" id="UEs-s0-sma"/>
-                            <constraint firstItem="Eju-E0-VC0" firstAttribute="trailing" secondItem="3Ik-8Y-Hpl" secondAttribute="trailing" constant="69" id="guN-Em-lB1"/>
-                            <constraint firstItem="5Cc-j6-g6m" firstAttribute="leading" secondItem="Eju-E0-VC0" secondAttribute="leading" constant="42" id="pjo-FO-06h"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Eju-E0-VC0"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="aaf-I2-V94" appends="YES" id="QeT-q9-IYa"/>
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="label1" destination="5Cc-j6-g6m" id="cYR-eS-SMq"/>
-                        <outlet property="label2" destination="3Ik-8Y-Hpl" id="Dln-5c-S3l"/>
+                        <outlet property="cat" destination="rM0-B7-cqy" id="bah-6g-h7M"/>
+                        <outlet property="kitten" destination="3qd-aL-Oay" id="Hgf-or-kFX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sI0-CR-DAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,4 +139,8 @@
             <point key="canvasLocation" x="-93.103448275862078" y="1189.5999999999999"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Cat" width="86" height="114"/>
+        <image name="Kitten" width="72" height="73"/>
+    </resources>
 </document>
