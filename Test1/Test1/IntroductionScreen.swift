@@ -14,6 +14,7 @@ class IntroductionScreen: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.setHidesBackButton(true, animated:true);
+        self.navigationController?.navigationBar.isHidden = true;
         
         // Reads label if VoiceOver is activated
         

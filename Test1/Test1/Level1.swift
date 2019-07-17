@@ -28,11 +28,9 @@ class Level1: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.setHidesBackButton(true, animated:true);
+        self.navigationController?.navigationBar.isHidden = true;
         
         // Creates AudioKit mixer and panner
-        
-        //var catMeow = try! AKAudioPlayer(file: catSound!)
-        //var kittenMeow = try! AKAudioPlayer(file: kittenSound!)
         
         let mixer = AKMixer(oscillator,oscillator2)
         
@@ -134,14 +132,6 @@ class Level1: UIViewController {
         
         guard gestureRecognizer.view != nil else {return}
         
-        /*var catMeow = try! AKAudioPlayer(file: catSound!)
-        var kittenMeow = try! AKAudioPlayer(file: kittenSound!)
-        mixerCat = AKMixer(catMeow, kittenMeow)  // Create AKMixer object, with audio loops as inputs
-        AudioKit.output = mixerCat    // Connect the mixer’s output to be AudioKit’s output
-        
-        try! AudioKit.start()
- */
-        
         // Updates the position for the .began, .changed, and .ended states
         
         if gameStarted == false && levelComplete == false {
@@ -153,15 +143,6 @@ class Level1: UIViewController {
                 // else tell the user it is the cat
                 
                 print("cat: first tap")
-                
-                /*do {
-                    self.catSound = try AVAudioPlayer(contentsOf: catSoundUrl)
-                    self.catSound?.play()
-                } catch {
-                    // couldn't load file :(
-                }*/
-                
-                //UIAccessibility.post(notification: .announcement, argument: "You found the cat! Find the kitten")
                 
                 // Show the kitten
                 
@@ -212,7 +193,8 @@ class Level1: UIViewController {
             
             if gestureRecognizer.state == .changed {
                 print(initialPoint)
-                
+                print("norm:", normalizePointValue(num: Double(initialPoint.y)))
+
                 let firstLevelRect = firstLevelShape.getCGRect()
                 
                 // Distinguishes 3 cases based on the finger position:
@@ -237,11 +219,7 @@ class Level1: UIViewController {
                     // 1. Inside the line but not in the center
                     
                     oscillator2.stop()
-                    if initialPoint.y > middleLineMaxY {
-                        oscillator.baseFrequency = 300 - Double(initialPoint.y)
-                    } else {
-                        oscillator.baseFrequency = 300 + Double(initialPoint.y)
-                    }
+                    oscillator.baseFrequency = 300 + 100 * normalizePointValue(num: Double(initialPoint.y))
                     oscillator.amplitude = 1
                     oscillator.start()
                     
@@ -294,6 +272,8 @@ class Level1: UIViewController {
             }
             
             if gestureRecognizer.state == .ended {
+                oscillator.stop()
+                oscillator2.stop()
                 print("Pan released")
                 print("restart game")
                 UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
@@ -371,5 +351,11 @@ class Level1: UIViewController {
         let min = Double(kitten.frame.minX + 10)
         let max = Double(cat.frame.maxX - 10)
         return 2 * ((num - min) / (max - min)) - 1
+    }
+    
+    func normalizePointValue(num: Double) -> Double {
+        let max = Double(self.view.frame.size.height / 2 - 32.5)
+        let min = max + 75
+        return abs(2 * ((num - min) / (max - min)) - 1)
     }
 }
