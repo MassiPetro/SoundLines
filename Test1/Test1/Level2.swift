@@ -210,7 +210,7 @@ class Level2: UIViewController {
                     
                     // Creates a sub-shape which indicates the line center
                     
-                    let screenMiddleLineY = self.view.frame.size.width / 2
+                    let screenMiddleLineY = self.view.frame.size.width / 2 - 32.5
                     let middleLineMinY = screenMiddleLineY - 5
                     let middleLineMaxY = screenMiddleLineY + 5
                     
@@ -220,7 +220,7 @@ class Level2: UIViewController {
                     // 1. Inside the line but not in the center
                     
                     oscillator2.stop()
-                    oscillator.baseFrequency = 300 + 100 * normalizePointValue(num: Double(initialPoint.y))
+                    oscillator.baseFrequency = 300 + 100 * normalizePointValue(num: Double(initialPoint.x))
                     oscillator.amplitude = 1
                     oscillator.start()
                     
@@ -356,7 +356,7 @@ class Level2: UIViewController {
     }
     
     func normalizePointValue(num: Double) -> Double {
-        let max = Double(self.view.frame.size.height / 2 - 32.5)
+        let max = Double(self.view.frame.size.width / 2 - 32.5)
         let min = max + 75
         return abs(2 * ((num - min) / (max - min)) - 1)
     }
