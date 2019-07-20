@@ -295,10 +295,9 @@ class Level1: UIViewController {
                 // couldn't load file :(
             }
             
-            try! AudioKit.stop()
-            
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                
+                try! AudioKit.stop()
+
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let level2Screen = storyBoard.instantiateViewController(withIdentifier: "level2screen")
                 self.present(level2Screen, animated: true, completion: nil)
