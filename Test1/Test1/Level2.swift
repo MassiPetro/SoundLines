@@ -14,7 +14,7 @@ import AVFoundation
 
 class Level2: UIViewController {
     
-    // AudioKit setup and start
+    //AudioKit setup and start
     
     var oscillator = AKFMOscillator()
     var oscillator2 = AKOscillator()
@@ -57,6 +57,7 @@ class Level2: UIViewController {
             try! AudioKit.stop()
         }
     }
+    
     
     @IBOutlet var kitten: UIImageView!
     @IBOutlet var cat: UIImageView!
@@ -101,7 +102,7 @@ class Level2: UIViewController {
         // Creates an accessibile rectangle shape
         
         secondLevelShape = Shape(frame: CGRect(x: kittenMaxX,
-                                              y: self.view.frame.size.height / 2 - 32.5,
+                                              y: self.view.frame.size.width / 2 - 32.5,
                                               width: shapeWidth,
                                               height: 75))
         

@@ -295,6 +295,8 @@ class Level1: UIViewController {
                 // couldn't load file :(
             }
             
+            try! AudioKit.stop()
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                 
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
