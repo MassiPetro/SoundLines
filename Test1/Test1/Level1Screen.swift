@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IntroductionScreen: UIViewController {
+class Level1Screen: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

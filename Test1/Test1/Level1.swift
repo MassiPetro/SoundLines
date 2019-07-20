@@ -294,6 +294,14 @@ class Level1: UIViewController {
             } catch {
                 // couldn't load file :(
             }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let level2Screen = storyBoard.instantiateViewController(withIdentifier: "level2screen")
+                self.present(level2Screen, animated: true, completion: nil)
+                
+            })
         }
         
         if catFound == 1 {

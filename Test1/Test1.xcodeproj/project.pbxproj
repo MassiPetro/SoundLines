@@ -10,14 +10,14 @@
 		0E45DBFC5E4DADDE5E484864 /* Pods_Test1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB87D00B485815D62CEF5C1 /* Pods_Test1UITests.framework */; };
 		7B44F607363806F7DBBE0599 /* Pods_Test1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A77FD5AB0476B216DF221D /* Pods_Test1.framework */; };
 		8A9C57805EAB383DF6DFD50A /* Pods_Test1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4805FEEE2AC7039F6CF09C2B /* Pods_Test1Tests.framework */; };
-		8B49DC4C22DF313400DE7E05 /* kitten.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B49DC4B22DF313400DE7E05 /* kitten.wav */; };
 		8B53558C22DE035C00569401 /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B53558B22DE035C00569401 /* Level2.swift */; };
 		8B53558F22DE210600569401 /* cat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B53558D22DE210600569401 /* cat.wav */; };
 		8B63262C22C10BD300367B7F /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63262B22C10BD300367B7F /* Shape.swift */; };
 		8BEDB45722CE550A00BEDAEC /* OpenScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDB45622CE550A00BEDAEC /* OpenScreen.swift */; };
-		8BEDB45922CE578D00BEDAEC /* IntroductionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDB45822CE578D00BEDAEC /* IntroductionScreen.swift */; };
+		8BEDB45922CE578D00BEDAEC /* Level1Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDB45822CE578D00BEDAEC /* Level1Screen.swift */; };
+		9E6A417822E34FF80061123A /* kitten.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9E6A417722E34FF80061123A /* kitten.wav */; };
 		9EB4505D22B28D8C00AA962B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4505C22B28D8C00AA962B /* AppDelegate.swift */; };
-		9EB4505F22B28D8C00AA962B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4505E22B28D8C00AA962B /* ViewController.swift */; };
+		9EB4505F22B28D8C00AA962B /* Level2Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4505E22B28D8C00AA962B /* Level2Screen.swift */; };
 		9EB4506222B28D8C00AA962B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EB4506022B28D8C00AA962B /* Main.storyboard */; };
 		9EB4506422B28D8E00AA962B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EB4506322B28D8E00AA962B /* Assets.xcassets */; };
 		9EB4506722B28D8E00AA962B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EB4506522B28D8E00AA962B /* LaunchScreen.storyboard */; };
@@ -63,15 +63,15 @@
 		4805FEEE2AC7039F6CF09C2B /* Pods_Test1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Test1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B5233777D9641BDEC994D82 /* Pods-Test1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test1.release.xcconfig"; path = "Target Support Files/Pods-Test1/Pods-Test1.release.xcconfig"; sourceTree = "<group>"; };
 		7CB87D00B485815D62CEF5C1 /* Pods_Test1UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Test1UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B49DC4B22DF313400DE7E05 /* kitten.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = kitten.wav; path = ../../../../Downloads/kitten.wav; sourceTree = "<group>"; };
 		8B53558B22DE035C00569401 /* Level2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level2.swift; sourceTree = "<group>"; };
 		8B53558D22DE210600569401 /* cat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cat.wav; sourceTree = "<group>"; };
 		8B63262B22C10BD300367B7F /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		8BEDB45622CE550A00BEDAEC /* OpenScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenScreen.swift; sourceTree = "<group>"; };
-		8BEDB45822CE578D00BEDAEC /* IntroductionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionScreen.swift; sourceTree = "<group>"; };
+		8BEDB45822CE578D00BEDAEC /* Level1Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1Screen.swift; sourceTree = "<group>"; };
+		9E6A417722E34FF80061123A /* kitten.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = kitten.wav; path = ../../../kitten.wav; sourceTree = "<group>"; };
 		9EB4505922B28D8C00AA962B /* Test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EB4505C22B28D8C00AA962B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9EB4505E22B28D8C00AA962B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9EB4505E22B28D8C00AA962B /* Level2Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level2Screen.swift; sourceTree = "<group>"; };
 		9EB4506122B28D8C00AA962B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9EB4506322B28D8E00AA962B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EB4506622B28D8E00AA962B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -165,11 +165,11 @@
 			isa = PBXGroup;
 			children = (
 				8B53558D22DE210600569401 /* cat.wav */,
-				8B49DC4B22DF313400DE7E05 /* kitten.wav */,
+				9E6A417722E34FF80061123A /* kitten.wav */,
 				9EB4505C22B28D8C00AA962B /* AppDelegate.swift */,
-				9EB4505E22B28D8C00AA962B /* ViewController.swift */,
+				9EB4505E22B28D8C00AA962B /* Level2Screen.swift */,
 				9EB4506022B28D8C00AA962B /* Main.storyboard */,
-				8BEDB45822CE578D00BEDAEC /* IntroductionScreen.swift */,
+				8BEDB45822CE578D00BEDAEC /* Level1Screen.swift */,
 				8B63262B22C10BD300367B7F /* Shape.swift */,
 				9EC9A84622C225CF00ACC168 /* Level1.swift */,
 				8B53558B22DE035C00569401 /* Level2.swift */,
@@ -307,9 +307,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B49DC4C22DF313400DE7E05 /* kitten.wav in Resources */,
 				9EB4506722B28D8E00AA962B /* LaunchScreen.storyboard in Resources */,
 				9EB4506422B28D8E00AA962B /* Assets.xcassets in Resources */,
+				9E6A417822E34FF80061123A /* kitten.wav in Resources */,
 				9EB4506222B28D8C00AA962B /* Main.storyboard in Resources */,
 				8B53558F22DE210600569401 /* cat.wav in Resources */,
 			);
@@ -408,10 +408,10 @@
 				9EC9A84722C225CF00ACC168 /* Level1.swift in Sources */,
 				8B63262C22C10BD300367B7F /* Shape.swift in Sources */,
 				8BEDB45722CE550A00BEDAEC /* OpenScreen.swift in Sources */,
-				9EB4505F22B28D8C00AA962B /* ViewController.swift in Sources */,
+				9EB4505F22B28D8C00AA962B /* Level2Screen.swift in Sources */,
 				9EB4505D22B28D8C00AA962B /* AppDelegate.swift in Sources */,
 				8B53558C22DE035C00569401 /* Level2.swift in Sources */,
-				8BEDB45922CE578D00BEDAEC /* IntroductionScreen.swift in Sources */,
+				8BEDB45922CE578D00BEDAEC /* Level1Screen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
