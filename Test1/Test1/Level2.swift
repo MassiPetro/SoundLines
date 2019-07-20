@@ -94,17 +94,17 @@ class Level2: UIViewController {
     
     func createLine() -> Void {
         
-        let kittenMaxX = kitten.frame.maxX
-        let catMinX = cat.frame.minX
+        let kittenMaxY = kitten.frame.maxY
+        let catMinY = cat.frame.minY
         
-        let shapeWidth: CGFloat = catMinX - kittenMaxX
+        let shapeHeight: CGFloat = catMinY - kittenMaxY
         
         // Creates an accessibile rectangle shape
         
-        secondLevelShape = Shape(frame: CGRect(x: kittenMaxX,
-                                              y: self.view.frame.size.width / 2 - 32.5,
-                                              width: shapeWidth,
-                                              height: 75))
+        secondLevelShape = Shape(frame: CGRect(x: self.view.frame.size.width / 2 - 32.5,
+                                               y: kittenMaxY,
+                                               width: 75,
+                                               height: shapeHeight))
         
         secondLevelShape.isAccessibilityElement = true
         secondLevelShape.accessibilityHint = "shape"
@@ -210,12 +210,12 @@ class Level2: UIViewController {
                     
                     // Creates a sub-shape which indicates the line center
                     
-                    let screenMiddleLineY = self.view.frame.size.height / 2
+                    let screenMiddleLineY = self.view.frame.size.width / 2
                     let middleLineMinY = screenMiddleLineY - 5
                     let middleLineMaxY = screenMiddleLineY + 5
                     
-                    let middleLineX = kitten.frame.maxX..<cat.frame.minX
-                    let middleLineY = middleLineMinY..<middleLineMaxY
+                    let middleLineX = middleLineMinY..<middleLineMaxY
+                    let middleLineY = kitten.frame.maxY..<cat.frame.minY
                     
                     // 1. Inside the line but not in the center
                     
@@ -287,7 +287,7 @@ class Level2: UIViewController {
             
             gestureRecognizer.isEnabled = false
             
-            UIAccessibility.post(notification: .announcement, argument: "Level 1 completed")
+            UIAccessibility.post(notification: .announcement, argument: "Level 2 completed")
             
             do {
                 self.catSound = try AVAudioPlayer(contentsOf: catSoundUrl)
@@ -296,13 +296,6 @@ class Level2: UIViewController {
                 // couldn't load file :(
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let level2Screen = storyBoard.instantiateViewController(withIdentifier: "level2screen")
-                self.present(level2Screen, animated: true, completion: nil)
-                
-            })
         }
         
         if catFound == 1 {

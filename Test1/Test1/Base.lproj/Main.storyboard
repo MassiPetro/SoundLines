@@ -186,7 +186,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cat" translatesAutoresizingMaskIntoConstraints="NO" id="bdt-fF-agr">
-                                <rect key="frame" x="288" y="227" width="91" height="128"/>
+                                <rect key="frame" x="291" y="227" width="91" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
