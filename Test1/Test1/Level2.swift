@@ -1,33 +1,38 @@
-/*
-//  Level1.swift
+//
+//  Level2.swift
 //  Test1
 //
 //  Created by simona1971 on 25/06/19.
 //  Copyright © 2019 Comelicode. All rights reserved.
 //
-// Level1: creates two elements, then a line between them, and detects if
+// Level2: creates two elements, then a line between them, and detects if
 // the user pans inside the line
 
 import UIKit
 import AudioKit
+import AVFoundation
 
-class Level1: UIViewController {
+class Level2: UIViewController {
     
     // AudioKit setup and start
     
     var oscillator = AKFMOscillator()
-    var oscillatorMid = AKFMOscillator()
     var oscillator2 = AKOscillator()
     var panner = AKPanner()
+    var mixerCat = AKMixer()
+    
+    var catSound: AVAudioPlayer?
+    var kittenSound: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.setHidesBackButton(true, animated:true);
+        self.navigationController?.navigationBar.isHidden = true;
         
         // Creates AudioKit mixer and panner
         
-        let mixer = AKMixer(oscillator, oscillatorMid,oscillator2)
+        let mixer = AKMixer(oscillator,oscillator2)
         
         panner = AKPanner(mixer, pan: 0.0)
         
@@ -37,11 +42,12 @@ class Level1: UIViewController {
         
         AKSettings.playbackWhileMuted = true
         
+        
         try! AudioKit.start()
         
-        // Hides the second label
+        // Hides the kitten label
         
-        label2.isHidden = true
+        kitten.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,29 +58,27 @@ class Level1: UIViewController {
         }
     }
     
-    @IBOutlet weak var label1: UILabel!
-    @IBOutlet weak var label2: UILabel!
+    @IBOutlet var kitten: UIImageView!
+    @IBOutlet var cat: UIImageView!
     
-    var firstLevelShape: Shape!
+    var secondLevelShape: Shape!
     
     var gameStarted: Bool = false
     
-    var firstElementFound: Bool = false
-    var secondElementFound: Bool = false
-    
-    var firstElementShown: Bool = false
+    var catShown: Bool = false
     var levelComplete: Bool = false
     
     var startingPoint = CGPoint()
+    var startedFromKitten: Bool = false
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // Game logic: find the first element, find the second element
+        // Game logic: find the cat, find the kitten
         // When both are found create the line
-        // If the second element has been reached, go to the next level
+        // If the kitten has been reached, go to the next level
         
-        // Tell the user to find the first element
+        // Tell the user to find the cat
         
         if gameStarted == false {
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
@@ -84,33 +88,42 @@ class Level1: UIViewController {
     }
     
     // Sets the line location and dimension:
-    // it is located between the first element and the second element
+    // it is located between the cat and the kitten
     // it has the same heigth as the element
     
     func createLine() -> Void {
         
-        let firstElementMaxX = label1.frame.maxX
-        let secondElementMinX = label2.frame.minX
+        let kittenMaxX = kitten.frame.maxX
+        let catMinX = cat.frame.minX
         
-        let shapeWidth: CGFloat = secondElementMinX - firstElementMaxX
-        let shapeHeight: CGFloat = label1.frame.height
+        let shapeWidth: CGFloat = catMinX - kittenMaxX
         
         // Creates an accessibile rectangle shape
         
-        firstLevelShape = Shape(frame: CGRect(x: firstElementMaxX,
-                                              y: self.view.frame.size.height / 2 - shapeHeight / 2 - 25,
+        secondLevelShape = Shape(frame: CGRect(x: kittenMaxX,
+                                              y: self.view.frame.size.height / 2 - 32.5,
                                               width: shapeWidth,
                                               height: 75))
         
-        firstLevelShape.isAccessibilityElement = true
-        firstLevelShape.accessibilityHint = "shape"
+        secondLevelShape.isAccessibilityElement = true
+        secondLevelShape.accessibilityHint = "shape"
         
-        self.view.addSubview(firstLevelShape)
+        self.view.addSubview(secondLevelShape)
     }
     
     // Detects panning on the shape and adds sonification based on the finger position
     
+    var catFound = 0
+    var kittenFound = 0
+    var levelCompleteCounter = 0
+    
     @IBAction func panDetector(_ gestureRecognizer: UIPanGestureRecognizer) {
+        
+        let catSoundPath = Bundle.main.path(forResource: "cat.wav", ofType:nil)!
+        let catSoundUrl = URL(fileURLWithPath: catSoundPath)
+        let kittenSoundPath = Bundle.main.path(forResource: "kitten.wav", ofType:nil)!
+        let kittenSoundUrl = URL(fileURLWithPath: kittenSoundPath)
+        
         print("panDetector")
         
         // Saves the point touched by the user
@@ -122,31 +135,34 @@ class Level1: UIViewController {
         // Updates the position for the .began, .changed, and .ended states
         
         if gameStarted == false && levelComplete == false {
-        
-            if isInsideFirstElement(point: initialPoint) {
+            
+            if isInsideCat(point: initialPoint) {
                 
-                // If it is the first time finding the first element tell the user it has been found
-                // and show the second element
-                // else tell the user it is the first element
+                // If it is the first time finding the cat tell the user it has been found
+                // and show the kitten
+                // else tell the user it is the cat
                 
-                print("firstElement: first tap")
-                UIAccessibility.post(notification: .announcement, argument: "You found the cat! Find the kitten")
+                print("cat: first tap")
                 
-                // Show the second element
+                // Show the kitten
                 
-                firstElementShown = true
-                label2.isHidden = false
+                catFound = catFound + 1
+                catShown = true
+                kitten.isHidden = false
+            } else {
+                catFound = 0
             }
-        
-            if firstElementShown == true {
+            
+            if catShown == true {
                 
-                if isInsideSecondElement(point: initialPoint) {
+                if isInsideKitten(point: initialPoint) {
                     
                     startingPoint = initialPoint
                     print("startingPoint 2: ", startingPoint)
                     
-                    print("secondElement: tap")
-                    UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Follow the line to connect the kitten to the cat")
+                    print("kitten: tap")
+                    
+                    kittenFound = kittenFound + 1
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                         // Create the line
@@ -157,23 +173,29 @@ class Level1: UIViewController {
                         
                         self.gameStarted = true
                     })
+                } else {
+                    kittenFound = 0
                 }
             }
         }
         
         if gameStarted == true {
             
-            if isInsideSecondElement(point: initialPoint) {
+            if isInsideKitten(point: initialPoint) {
                 startingPoint = initialPoint
                 print("startingPoint 2: ", startingPoint)
                 
+                startedFromKitten = true
+                
                 UIAccessibility.post(notification: .announcement, argument: "Kitten")
+                
             }
             
             if gestureRecognizer.state == .changed {
                 print(initialPoint)
+                print("norm:", normalizePointValue(num: Double(initialPoint.y)))
                 
-                let firstLevelRect = firstLevelShape.getCGRect()
+                let secondLevelRect = secondLevelShape.getCGRect()
                 
                 // Distinguishes 3 cases based on the finger position:
                 // 1. Inside the line but not in the center
@@ -182,39 +204,34 @@ class Level1: UIViewController {
                 
                 // The finger is inside the line
                 
-                if (firstLevelRect.contains(initialPoint)) {
+                if (secondLevelRect.contains(initialPoint)) {
                     print("OK: point is inside shape")
-                    
-                    // 1. Inside the line but not in the center
-                    
-                    oscillatorMid.stop()
-                    oscillator2.stop()
-                    oscillator.baseFrequency = Double(initialPoint.y)
-                    oscillator.amplitude = 1
-                    oscillator.start()
                     
                     // Creates a sub-shape which indicates the line center
                     
-                    let y = self.view.frame.size.height / 2 - label1.frame.height / 2 - 25 + 37.5
-                    let minY = y - 5
-                    let maxY = y + 5
+                    let screenMiddleLineY = self.view.frame.size.height / 2
+                    let middleLineMinY = screenMiddleLineY - 5
+                    let middleLineMaxY = screenMiddleLineY + 5
                     
-                    let middleLineX = label1.frame.maxX..<label2.frame.minX
-                    let middleLineY = minY..<maxY
+                    let middleLineX = kitten.frame.maxX..<cat.frame.minX
+                    let middleLineY = middleLineMinY..<middleLineMaxY
+                    
+                    // 1. Inside the line but not in the center
+                    
+                    oscillator2.stop()
+                    oscillator.baseFrequency = 300 + 100 * normalizePointValue(num: Double(initialPoint.y))
+                    oscillator.amplitude = 1
+                    oscillator.start()
                     
                     // 2. At the center of the line
                     
                     if(middleLineX.contains(initialPoint.x) && middleLineY.contains(initialPoint.y)) {
                         print("Inside the middle line")
-                        oscillator.stop()
                         oscillator2.stop()
                         
                         panner.pan = normalize(num: Double(initialPoint.x))
                         
-                        oscillatorMid.baseFrequency = Double(initialPoint.y)
-                        oscillatorMid.start()
-                    } else {
-                        panner.pan = 0.0
+                        oscillator.baseFrequency = 300
                     }
                     
                 } else {
@@ -222,27 +239,31 @@ class Level1: UIViewController {
                     
                     print("NO: point is outside shape")
                     
-                    oscillatorMid.stop()
+                    panner.pan = 0.0
+                    
                     oscillator.stop()
                     oscillator2.amplitude = 0.5
                     oscillator2.frequency = 200
                     oscillator2.start()
                     
                     // Two cases
-                    // Finger is outside the line and inside the second element: great! Level completed
-                    // Finger is outside the line but outside the second element: restart
+                    // Finger is outside the line and inside the kitten: great! Level completed
+                    // Finger is outside the line but outside the kitten: restart
                     
-                    if isInsideFirstElement(point: initialPoint) {
+                    if isInsideCat(point: initialPoint) {
                         print("Last point is inside element")
                         
-                        oscillator.stop()
-                        oscillator2.stop()
+                        if startedFromKitten {
+                            oscillator.stop()
+                            oscillator2.stop()
+                            
+                            gameStarted = false
+                            
+                            levelComplete = true
+                            
+                        }
                         
-                        gameStarted = false
-                        
-                        levelComplete = true
-                        
-                    } else if !isInsideSecondElement(point: initialPoint) {
+                    } else if !isInsideKitten(point: initialPoint) || startedFromKitten == false {
                         print("Last point is outside element")
                         print("restart game")
                         UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
@@ -251,47 +272,98 @@ class Level1: UIViewController {
             }
             
             if gestureRecognizer.state == .ended {
+                oscillator.stop()
+                oscillator2.stop()
                 print("Pan released")
                 print("restart game")
                 UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
+                startedFromKitten = false
+                levelCompleteCounter = 0
             }
         }
         
         if levelComplete == true {
+            
+            gestureRecognizer.isEnabled = false
+            
             UIAccessibility.post(notification: .announcement, argument: "Level 1 completed")
+            
+            do {
+                self.catSound = try AVAudioPlayer(contentsOf: catSoundUrl)
+                self.catSound?.play()
+            } catch {
+                // couldn't load file :(
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let level2Screen = storyBoard.instantiateViewController(withIdentifier: "level2screen")
+                self.present(level2Screen, animated: true, completion: nil)
+                
+            })
+        }
+        
+        if catFound == 1 {
+            
+            do {
+                self.catSound = try AVAudioPlayer(contentsOf: catSoundUrl)
+                self.catSound?.play()
+            } catch {
+                // couldn't load file :(
+            }
+            
+            UIAccessibility.post(notification: .announcement, argument: "You found the cat! Find the kitten")
+        }
+        
+        if kittenFound == 1 {
+            
+            do {
+                kittenSound = try AVAudioPlayer(contentsOf: kittenSoundUrl)
+                kittenSound?.play()
+            } catch {
+                // couldn't load file :(
+            }
+            
+            UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Follow the line to connect the kitten to the cat")
         }
     }
     
-    // Returns true if the passed point is inside the first element
+    // Returns true if the passed point is inside the cat
     
-    func isInsideFirstElement(point: CGPoint) -> Bool {
-        let firstElementMaxX = label1.frame.maxX
-        let firstElementMinX = label1.frame.minX
-        let firstElementMaxY = label1.frame.maxY
-        let firstElementMinY = label1.frame.minY
+    func isInsideCat(point: CGPoint) -> Bool {
+        let catMaxX = cat.frame.maxX
+        let catMinX = cat.frame.minX
+        let catMaxY = cat.frame.maxY
+        let catMinY = cat.frame.minY
         
-        return point.x >= firstElementMinX && point.x <= firstElementMaxX &&
-            point.y >= firstElementMinY && point.y <= firstElementMaxY
+        return point.x >= catMinX && point.x <= catMaxX &&
+            point.y >= catMinY && point.y <= catMaxY
     }
     
-    // Returns true if the passed point is inside the second element
+    // Returns true if the passed point is inside the kitten
     
-    func isInsideSecondElement(point: CGPoint) -> Bool {
-        let secondElementMaxX = label2.frame.maxX
-        let secondElementMinX = label2.frame.minX
-        let secondElementMaxY = label2.frame.maxY
-        let secondElementMinY = label2.frame.minY
+    func isInsideKitten(point: CGPoint) -> Bool {
+        let kittenMaxX = kitten.frame.maxX
+        let kittenMinX = kitten.frame.minX
+        let kittenMaxY = kitten.frame.maxY
+        let kittenMinY = kitten.frame.minY
         
-        return point.x >= secondElementMinX && point.x <= secondElementMaxX &&
-            point.y >= secondElementMinY && point.y <= secondElementMaxY
+        return point.x >= kittenMinX && point.x <= kittenMaxX &&
+            point.y >= kittenMinY && point.y <= kittenMaxY
     }
     
     // Normalizes double values for AudioKit panner
     
     func normalize(num: Double) -> Double {
-        let min = Double(label1.frame.maxX + 10)
-        let max = Double(label2.frame.minX - 10)
+        let min = Double(kitten.frame.minX + 10)
+        let max = Double(cat.frame.maxX - 10)
         return 2 * ((num - min) / (max - min)) - 1
     }
+    
+    func normalizePointValue(num: Double) -> Double {
+        let max = Double(self.view.frame.size.height / 2 - 32.5)
+        let min = max + 75
+        return abs(2 * ((num - min) / (max - min)) - 1)
+    }
 }
-*/
