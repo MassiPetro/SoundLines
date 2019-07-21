@@ -63,6 +63,7 @@ class Level2: UIViewController {
     @IBOutlet var cat: UIImageView!
     
     var secondLevelShape: Shape!
+    var middleLineShape: Shape!
     
     var gameStarted: Bool = false
     
@@ -105,6 +106,11 @@ class Level2: UIViewController {
                                                y: kittenMaxY,
                                                width: 75,
                                                height: shapeHeight))
+        
+        middleLineShape = Shape(frame: CGRect(x: self.view.frame.size.width / 2 - 5,
+                                             y: kittenMaxY,
+                                             width: 10,
+                                             height: shapeHeight))
         
         secondLevelShape.isAccessibilityElement = true
         secondLevelShape.accessibilityHint = "shape"
@@ -226,7 +232,9 @@ class Level2: UIViewController {
                     
                     // 2. At the center of the line
                     
-                    if(middleLineX.contains(initialPoint.x) && middleLineY.contains(initialPoint.y)) {
+                    let middleLineRect = middleLineShape.getCGRect()
+                    
+                    if(middleLineRect.contains(initialPoint)) {
                         print("Inside the middle line")
                         oscillator2.stop()
                         
