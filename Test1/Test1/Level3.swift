@@ -1,18 +1,18 @@
 //
-//  Level2.swift
+//  Level3.swift
 //  Test1
 //
-//  Created by simona1971 on 25/06/19.
+//  Created by Fede on 21/07/19.
 //  Copyright © 2019 Comelicode. All rights reserved.
 //
-// Level2: creates two elements, then a line between them, and detects if
+// Level3: creates two elements, then a line between them, and detects if
 // the user pans inside the line
 
 import UIKit
 import AudioKit
 import AVFoundation
 
-class Level2: UIViewController {
+class Level3: UIViewController {
     
     //AudioKit setup and start
     
@@ -62,7 +62,7 @@ class Level2: UIViewController {
     @IBOutlet var kitten: UIImageView!
     @IBOutlet var cat: UIImageView!
     
-    var secondLevelShape: Shape!
+    var thirdLevelShape: Shape!
     
     var gameStarted: Bool = false
     
@@ -101,15 +101,15 @@ class Level2: UIViewController {
         
         // Creates an accessibile rectangle shape
         
-        secondLevelShape = Shape(frame: CGRect(x: self.view.frame.size.width / 2 - 32.5,
+        thirdLevelShape = Shape(frame: CGRect(x: self.view.frame.size.width / 2 - 32.5,
                                                y: kittenMaxY,
                                                width: 75,
                                                height: shapeHeight))
         
-        secondLevelShape.isAccessibilityElement = true
-        secondLevelShape.accessibilityHint = "shape"
+        thirdLevelShape.isAccessibilityElement = true
+        thirdLevelShape.accessibilityHint = "shape"
         
-        self.view.addSubview(secondLevelShape)
+        self.view.addSubview(thirdLevelShape)
     }
     
     // Detects panning on the shape and adds sonification based on the finger position
@@ -196,7 +196,7 @@ class Level2: UIViewController {
                 print(initialPoint)
                 print("norm:", normalizePointValue(num: Double(initialPoint.y)))
                 
-                let secondLevelRect = secondLevelShape.getCGRect()
+                let thirdLevelRect = thirdLevelShape.getCGRect()
                 
                 // Distinguishes 3 cases based on the finger position:
                 // 1. Inside the line but not in the center
@@ -205,7 +205,7 @@ class Level2: UIViewController {
                 
                 // The finger is inside the line
                 
-                if (secondLevelRect.contains(initialPoint)) {
+                if (thirdLevelRect.contains(initialPoint)) {
                     print("OK: point is inside shape")
                     
                     // Creates a sub-shape which indicates the line center
@@ -295,6 +295,7 @@ class Level2: UIViewController {
             } catch {
                 // couldn't load file :(
             }
+            
         }
         
         if catFound == 1 {

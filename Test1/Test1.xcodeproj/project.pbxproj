@@ -14,6 +14,8 @@
 		8B53558F22DE210600569401 /* cat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B53558D22DE210600569401 /* cat.wav */; };
 		8B63262C22C10BD300367B7F /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63262B22C10BD300367B7F /* Shape.swift */; };
 		8B86F7DB22E364AC0008C428 /* kitten.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B86F7DA22E364AC0008C428 /* kitten.wav */; };
+		8BCFC82522E4AABA00A668A8 /* Level3Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFC82422E4AABA00A668A8 /* Level3Screen.swift */; };
+		8BCFC82722E4AB4B00A668A8 /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFC82622E4AB4B00A668A8 /* Level3.swift */; };
 		8BEDB45722CE550A00BEDAEC /* OpenScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDB45622CE550A00BEDAEC /* OpenScreen.swift */; };
 		8BEDB45922CE578D00BEDAEC /* Level1Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDB45822CE578D00BEDAEC /* Level1Screen.swift */; };
 		9EB4505D22B28D8C00AA962B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4505C22B28D8C00AA962B /* AppDelegate.swift */; };
@@ -67,6 +69,8 @@
 		8B53558D22DE210600569401 /* cat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cat.wav; sourceTree = "<group>"; };
 		8B63262B22C10BD300367B7F /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		8B86F7DA22E364AC0008C428 /* kitten.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = kitten.wav; path = ../../../../Downloads/kitten.wav; sourceTree = "<group>"; };
+		8BCFC82422E4AABA00A668A8 /* Level3Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3Screen.swift; sourceTree = "<group>"; };
+		8BCFC82622E4AB4B00A668A8 /* Level3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
 		8BEDB45622CE550A00BEDAEC /* OpenScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenScreen.swift; sourceTree = "<group>"; };
 		8BEDB45822CE578D00BEDAEC /* Level1Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1Screen.swift; sourceTree = "<group>"; };
 		9EB4505922B28D8C00AA962B /* Test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +172,9 @@
 				8B86F7DA22E364AC0008C428 /* kitten.wav */,
 				9EB4505C22B28D8C00AA962B /* AppDelegate.swift */,
 				9EB4505E22B28D8C00AA962B /* Level2Screen.swift */,
+				8BCFC82422E4AABA00A668A8 /* Level3Screen.swift */,
 				9EB4506022B28D8C00AA962B /* Main.storyboard */,
+				8BCFC82622E4AB4B00A668A8 /* Level3.swift */,
 				8BEDB45822CE578D00BEDAEC /* Level1Screen.swift */,
 				8B63262B22C10BD300367B7F /* Shape.swift */,
 				9EC9A84622C225CF00ACC168 /* Level1.swift */,
@@ -405,6 +411,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BCFC82722E4AB4B00A668A8 /* Level3.swift in Sources */,
+				8BCFC82522E4AABA00A668A8 /* Level3Screen.swift in Sources */,
 				9EC9A84722C225CF00ACC168 /* Level1.swift in Sources */,
 				8B63262C22C10BD300367B7F /* Shape.swift in Sources */,
 				8BEDB45722CE550A00BEDAEC /* OpenScreen.swift in Sources */,
