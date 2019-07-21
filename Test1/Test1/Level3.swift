@@ -63,6 +63,7 @@ class Level3: UIViewController {
     @IBOutlet var cat: UIImageView!
     
     var thirdLevelShape: Shape!
+    var middleLineShape: Shape!
     
     var gameStarted: Bool = false
     
@@ -106,7 +107,13 @@ class Level3: UIViewController {
                                               width: shapeWidth,
                                               height: 75))
         
+        middleLineShape = Shape(frame: CGRect(x: kittenMaxX,
+                                              y: self.view.frame.size.height / 2 - 32.5,
+                                              width: shapeWidth,
+                                              height: 10))
+        
         thirdLevelShape.transform = CGAffineTransform(rotationAngle: -(CGFloat.pi / 8))
+        middleLineShape.transform = CGAffineTransform(rotationAngle: -(CGFloat.pi / 8))
 
         thirdLevelShape.isAccessibilityElement = true
         thirdLevelShape.accessibilityHint = "shape"
@@ -212,12 +219,6 @@ class Level3: UIViewController {
                     
                     // Creates a sub-shape which indicates the line center
                     
-                    let screenMiddleLineY = self.view.frame.size.width / 2 - 32.5
-                    let middleLineMinY = screenMiddleLineY - 5
-                    let middleLineMaxY = screenMiddleLineY + 5
-                    
-                    let middleLineX = middleLineMinY..<middleLineMaxY
-                    let middleLineY = kitten.frame.maxY..<cat.frame.minY
                     
                     // 1. Inside the line but not in the center
                     
@@ -228,7 +229,9 @@ class Level3: UIViewController {
                     
                     // 2. At the center of the line
                     
-                    if(middleLineX.contains(initialPoint.x) && middleLineY.contains(initialPoint.y)) {
+                    let middleLineRect = middleLineShape.getCGRect()
+                    
+                    if(middleLineRect.contains(initialPoint)) {
                         print("Inside the middle line")
                         oscillator2.stop()
                         

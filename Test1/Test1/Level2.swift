@@ -112,6 +112,7 @@ class Level2: UIViewController {
                                              width: 10,
                                              height: shapeHeight))
         
+        
         secondLevelShape.isAccessibilityElement = true
         secondLevelShape.accessibilityHint = "shape"
         
