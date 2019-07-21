@@ -94,18 +94,20 @@ class Level3: UIViewController {
     
     func createLine() -> Void {
         
-        let kittenMaxY = kitten.frame.maxY
-        let catMinY = cat.frame.minY
+        let kittenMaxX = kitten.frame.maxX
+        let catMinX = cat.frame.minX
         
-        let shapeHeight: CGFloat = catMinY - kittenMaxY
+        let shapeWidth: CGFloat = catMinX - kittenMaxX
         
         // Creates an accessibile rectangle shape
         
-        thirdLevelShape = Shape(frame: CGRect(x: self.view.frame.size.width / 2 - 32.5,
-                                               y: kittenMaxY,
-                                               width: 75,
-                                               height: shapeHeight))
+        thirdLevelShape = Shape(frame: CGRect(x: kittenMaxX,
+                                              y: self.view.frame.size.height / 2 - 32.5,
+                                              width: shapeWidth,
+                                              height: 75))
         
+        thirdLevelShape.transform = CGAffineTransform(rotationAngle: -(CGFloat.pi / 8))
+
         thirdLevelShape.isAccessibilityElement = true
         thirdLevelShape.accessibilityHint = "shape"
         
@@ -261,7 +263,6 @@ class Level3: UIViewController {
                             gameStarted = false
                             
                             levelComplete = true
-                            
                         }
                         
                     } else if !isInsideKitten(point: initialPoint) || startedFromKitten == false {
@@ -295,7 +296,6 @@ class Level3: UIViewController {
             } catch {
                 // couldn't load file :(
             }
-            
         }
         
         if catFound == 1 {

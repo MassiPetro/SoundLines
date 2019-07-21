@@ -10,6 +10,7 @@
 		0E45DBFC5E4DADDE5E484864 /* Pods_Test1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB87D00B485815D62CEF5C1 /* Pods_Test1UITests.framework */; };
 		7B44F607363806F7DBBE0599 /* Pods_Test1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A77FD5AB0476B216DF221D /* Pods_Test1.framework */; };
 		8A9C57805EAB383DF6DFD50A /* Pods_Test1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4805FEEE2AC7039F6CF09C2B /* Pods_Test1Tests.framework */; };
+		8B2B0B8722E4C58900642A42 /* kitten.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B2B0B8622E4C58900642A42 /* kitten.wav */; };
 		8B53558C22DE035C00569401 /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B53558B22DE035C00569401 /* Level2.swift */; };
 		8B53558F22DE210600569401 /* cat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B53558D22DE210600569401 /* cat.wav */; };
 		8B63262C22C10BD300367B7F /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63262B22C10BD300367B7F /* Shape.swift */; };
@@ -17,7 +18,6 @@
 		8BCFC82722E4AB4B00A668A8 /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFC82622E4AB4B00A668A8 /* Level3.swift */; };
 		8BEDB45722CE550A00BEDAEC /* OpenScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDB45622CE550A00BEDAEC /* OpenScreen.swift */; };
 		8BEDB45922CE578D00BEDAEC /* Level1Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDB45822CE578D00BEDAEC /* Level1Screen.swift */; };
-		9E9C2F6822E4B7A000C15362 /* kitten.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C2F6722E4B7A000C15362 /* kitten.wav */; };
 		9EB4505D22B28D8C00AA962B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4505C22B28D8C00AA962B /* AppDelegate.swift */; };
 		9EB4505F22B28D8C00AA962B /* Level2Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4505E22B28D8C00AA962B /* Level2Screen.swift */; };
 		9EB4506222B28D8C00AA962B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EB4506022B28D8C00AA962B /* Main.storyboard */; };
@@ -65,6 +65,7 @@
 		4805FEEE2AC7039F6CF09C2B /* Pods_Test1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Test1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B5233777D9641BDEC994D82 /* Pods-Test1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test1.release.xcconfig"; path = "Target Support Files/Pods-Test1/Pods-Test1.release.xcconfig"; sourceTree = "<group>"; };
 		7CB87D00B485815D62CEF5C1 /* Pods_Test1UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Test1UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B2B0B8622E4C58900642A42 /* kitten.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = kitten.wav; path = ../../../../Downloads/kitten.wav; sourceTree = "<group>"; };
 		8B53558B22DE035C00569401 /* Level2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level2.swift; sourceTree = "<group>"; };
 		8B53558D22DE210600569401 /* cat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cat.wav; sourceTree = "<group>"; };
 		8B63262B22C10BD300367B7F /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 		8BCFC82622E4AB4B00A668A8 /* Level3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
 		8BEDB45622CE550A00BEDAEC /* OpenScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenScreen.swift; sourceTree = "<group>"; };
 		8BEDB45822CE578D00BEDAEC /* Level1Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1Screen.swift; sourceTree = "<group>"; };
-		9E9C2F6722E4B7A000C15362 /* kitten.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = kitten.wav; path = ../../../kitten.wav; sourceTree = "<group>"; };
 		9EB4505922B28D8C00AA962B /* Test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EB4505C22B28D8C00AA962B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EB4505E22B28D8C00AA962B /* Level2Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level2Screen.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				8B53558D22DE210600569401 /* cat.wav */,
-				9E9C2F6722E4B7A000C15362 /* kitten.wav */,
+				8B2B0B8622E4C58900642A42 /* kitten.wav */,
 				9EB4505C22B28D8C00AA962B /* AppDelegate.swift */,
 				9EB4505E22B28D8C00AA962B /* Level2Screen.swift */,
 				8BCFC82422E4AABA00A668A8 /* Level3Screen.swift */,
@@ -313,9 +313,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B2B0B8722E4C58900642A42 /* kitten.wav in Resources */,
 				9EB4506722B28D8E00AA962B /* LaunchScreen.storyboard in Resources */,
 				9EB4506422B28D8E00AA962B /* Assets.xcassets in Resources */,
-				9E9C2F6822E4B7A000C15362 /* kitten.wav in Resources */,
 				9EB4506222B28D8C00AA962B /* Main.storyboard in Resources */,
 				8B53558F22DE210600569401 /* cat.wav in Resources */,
 			);

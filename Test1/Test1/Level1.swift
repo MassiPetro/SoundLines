@@ -158,7 +158,6 @@ class Level1: UIViewController {
                 if isInsideKitten(point: initialPoint) {
                     
                     startingPoint = initialPoint
-                    print("startingPoint 2: ", startingPoint)
                     
                     print("kitten: tap")
                     
