@@ -182,11 +182,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Kitten" translatesAutoresizingMaskIntoConstraints="NO" id="fpf-2S-1px">
-                                <rect key="frame" x="291" y="20" width="85" height="100"/>
+                                <rect key="frame" x="281" y="20" width="105" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cat" translatesAutoresizingMaskIntoConstraints="NO" id="bdt-fF-agr">
-                                <rect key="frame" x="291" y="227" width="91" height="128"/>
+                                <rect key="frame" x="281" y="240" width="105" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -259,16 +259,39 @@ Press play to continue.</string>
                     <view key="view" contentMode="scaleToFill" id="5Tl-Sw-WMU" customClass="Shape" customModule="Test1" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cat" translatesAutoresizingMaskIntoConstraints="NO" id="QVR-oO-3J9">
+                                <rect key="frame" x="542" y="20" width="105" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Kitten" translatesAutoresizingMaskIntoConstraints="NO" id="efp-GG-O0y">
+                                <rect key="frame" x="20" y="274" width="105" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" allowsDirectInteraction="YES"/>
+                            <bool key="isElement" value="YES"/>
                         </accessibility>
                         <viewLayoutGuide key="safeArea" id="rZJ-Un-fiu"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Zeh-pz-8Tp" appends="YES" id="OaQ-Ig-abV"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="cat" destination="QVR-oO-3J9" id="hW9-LO-Q3q"/>
+                        <outlet property="kitten" destination="efp-GG-O0y" id="fEL-fq-lDf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmQ-Ze-GPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Zeh-pz-8Tp">
+                    <connections>
+                        <action selector="panDetector:" destination="Uf4-ad-ubP" id="8ue-Jy-3s0"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-94" y="4337"/>
+            <point key="canvasLocation" x="-94.002998500749626" y="4336.8000000000002"/>
         </scene>
     </scenes>
     <resources>
