@@ -295,6 +295,15 @@ class Level2: UIViewController {
             } catch {
                 // couldn't load file :(
             }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                try! AudioKit.stop()
+                
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let level2Screen = storyBoard.instantiateViewController(withIdentifier: "level3screen")
+                self.present(level2Screen, animated: true, completion: nil)
+                
+            })
         }
         
         if catFound == 1 {
