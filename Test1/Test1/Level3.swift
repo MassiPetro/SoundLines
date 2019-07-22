@@ -42,7 +42,6 @@ class Level3: UIViewController {
         
         AKSettings.playbackWhileMuted = true
         
-        
         try! AudioKit.start()
         
         // Hides the kitten label
@@ -57,7 +56,6 @@ class Level3: UIViewController {
             try! AudioKit.stop()
         }
     }
-    
     
     @IBOutlet var kitten: UIImageView!
     @IBOutlet var cat: UIImageView!
@@ -108,17 +106,19 @@ class Level3: UIViewController {
                                               height: 75))
         
         middleLineShape = Shape(frame: CGRect(x: kittenMaxX,
-                                              y: self.view.frame.size.height / 2 - 32.5,
+                                              y: self.view.frame.size.height / 2,
                                               width: shapeWidth,
                                               height: 10))
         
         thirdLevelShape.transform = CGAffineTransform(rotationAngle: -(CGFloat.pi / 8))
         middleLineShape.transform = CGAffineTransform(rotationAngle: -(CGFloat.pi / 8))
-
+        
+        middleLineShape.backgroundColor = UIColor.black
         thirdLevelShape.isAccessibilityElement = true
         thirdLevelShape.accessibilityHint = "shape"
         
         self.view.addSubview(thirdLevelShape)
+        self.view.addSubview(middleLineShape)
     }
     
     // Detects panning on the shape and adds sonification based on the finger position
@@ -198,7 +198,6 @@ class Level3: UIViewController {
                 startedFromKitten = true
                 
                 UIAccessibility.post(notification: .announcement, argument: "Kitten")
-                
             }
             
             if gestureRecognizer.state == .changed {
@@ -207,6 +206,39 @@ class Level3: UIViewController {
                 
                 let thirdLevelRect = thirdLevelShape.getCGRect()
                 
+                let invertedTransform = CGAffineTransform(rotationAngle: CGFloat.pi)
+
+                var invertedThirdLevelRect = thirdLevelRect
+                invertedThirdLevelRect = invertedThirdLevelRect.applying(invertedTransform)
+                
+                var invertedInitialPoint = initialPoint
+                invertedInitialPoint = invertedInitialPoint.applying(invertedTransform)
+                
+                /*let transform2 = CGAffineTransform(translationX: 100.0, y: -115.0)
+                invertedInitialPoint = invertedInitialPoint.applying(transform2)*/
+                
+                print("invertedInitialPoint", invertedInitialPoint)
+                
+                /*
+                 normale
+                 
+                 maxX: 542.0
+                 minX: 125.0
+                 maxY: 230.0
+                 minY: 155.0
+                 topRight = (542.0, 155.0) -> (maxX, minY)
+                 bottomRight = (542.0, 230.0) -> (maxX, maxY)
+                 topLeft = (125.0, 155.0) -> (minX, minY)
+                 bottomLeft = (125.0, 230.0) -> (minX, maxY)
+                 
+                 inv
+                 
+                 topRight = (442.0, 270.0) -> (maxX, minY)
+                 bottomRight = (442.0, 345.0) -> (maxX, maxY)
+                 topLeft = (25.0, 270.0) -> (minX, minY)
+                 bottomLeft = (25.0, 345 b1.0) -> (minX, maxY)
+ */
+                
                 // Distinguishes 3 cases based on the finger position:
                 // 1. Inside the line but not in the center
                 // 2. At the center of the line
@@ -214,11 +246,10 @@ class Level3: UIViewController {
                 
                 // The finger is inside the line
                 
-                if (thirdLevelRect.contains(initialPoint)) {
+                if (invertedThirdLevelRect.contains(invertedInitialPoint)) {
                     print("OK: point is inside shape")
                     
                     // Creates a sub-shape which indicates the line center
-                    
                     
                     // 1. Inside the line but not in the center
                     

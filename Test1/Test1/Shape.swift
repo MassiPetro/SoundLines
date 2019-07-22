@@ -28,6 +28,4 @@ class Shape: UIView {
     func getCGRect() -> CGRect {
         return frame
     }
-
 }
-
