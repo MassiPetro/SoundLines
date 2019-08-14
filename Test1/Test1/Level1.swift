@@ -130,7 +130,6 @@ class Level1: UIViewController {
                 catFound = catFound + 1
                 catShown = true
                 kitten.isHidden = false
-                redLine.isHidden = false
             } else {
                 catFound = 0
             }
@@ -146,6 +145,8 @@ class Level1: UIViewController {
                     kittenFound = kittenFound + 1
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                        
+                        redLine.isHidden = false
                         
                         // Start the game
                         

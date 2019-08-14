@@ -48,6 +48,7 @@ class Level2: UIViewController {
         // Hides the kitten label
         
         kitten.isHidden = true
+        redLine.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,9 +62,7 @@ class Level2: UIViewController {
     
     @IBOutlet var kitten: UIImageView!
     @IBOutlet var cat: UIImageView!
-    
-    var secondLevelShape: Shape!
-    var middleLineShape: Shape!
+    @IBOutlet var redLine: UIImageView!
     
     var gameStarted: Bool = false
     
@@ -92,32 +91,6 @@ class Level2: UIViewController {
     // Sets the line location and dimension:
     // it is located between the cat and the kitten
     // it has the same heigth as the element
-    
-    func createLine() -> Void {
-        
-        let kittenMaxY = kitten.frame.maxY
-        let catMinY = cat.frame.minY
-        
-        let shapeHeight: CGFloat = catMinY - kittenMaxY
-        
-        // Creates an accessibile rectangle shape
-        
-        secondLevelShape = Shape(frame: CGRect(x: self.view.frame.size.width / 2 - 32.5,
-                                               y: kittenMaxY,
-                                               width: 75,
-                                               height: shapeHeight))
-        
-        middleLineShape = Shape(frame: CGRect(x: self.view.frame.size.width / 2 - 5,
-                                             y: kittenMaxY,
-                                             width: 10,
-                                             height: shapeHeight))
-        
-        
-        secondLevelShape.isAccessibilityElement = true
-        secondLevelShape.accessibilityHint = "shape"
-        
-        self.view.addSubview(secondLevelShape)
-    }
     
     // Detects panning on the shape and adds sonification based on the finger position
     
@@ -173,9 +146,8 @@ class Level2: UIViewController {
                     kittenFound = kittenFound + 1
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                        // Create the line
                         
-                        self.createLine()
+                        self.redLine.isHidden = false
                         
                         // Start the game
                         
@@ -203,8 +175,6 @@ class Level2: UIViewController {
                 print(initialPoint)
                 print("norm:", normalizePointValue(num: Double(initialPoint.y)))
                 
-                let secondLevelRect = secondLevelShape.getCGRect()
-                
                 // Distinguishes 3 cases based on the finger position:
                 // 1. Inside the line but not in the center
                 // 2. At the center of the line
@@ -212,17 +182,8 @@ class Level2: UIViewController {
                 
                 // The finger is inside the line
                 
-                if (secondLevelRect.contains(initialPoint)) {
-                    print("OK: point is inside shape")
-                    
-                    // Creates a sub-shape which indicates the line center
-                    
-                    let screenMiddleLineY = self.view.frame.size.width / 2 - 32.5
-                    let middleLineMinY = screenMiddleLineY - 5
-                    let middleLineMaxY = screenMiddleLineY + 5
-                    
-                    let middleLineX = middleLineMinY..<middleLineMaxY
-                    let middleLineY = kitten.frame.maxY..<cat.frame.minY
+                if (distPointLine(point: initialPoint) <= 37.5) {
+                    print("OK: point is inside shape, dist:", distPointLine(point: initialPoint))
                     
                     // 1. Inside the line but not in the center
                     
@@ -231,11 +192,17 @@ class Level2: UIViewController {
                     oscillator.amplitude = 1
                     oscillator.start()
                     
+                    if isInsideKitten(point: initialPoint) {
+                        oscillator.stop()
+                        UIAccessibility.post(notification: .announcement, argument: "Kitten")
+                    } else if isInsideCat(point: initialPoint) {
+                        oscillator.stop()
+                        UIAccessibility.post(notification: .announcement, argument: "Cat")
+                    }
+                    
                     // 2. At the center of the line
                     
-                    let middleLineRect = middleLineShape.getCGRect()
-                    
-                    if(middleLineRect.contains(initialPoint)) {
+                    if(distPointLine(point: initialPoint) <= 5) {
                         print("Inside the middle line")
                         oscillator2.stop()
                         
@@ -243,22 +210,6 @@ class Level2: UIViewController {
                         
                         oscillator.baseFrequency = 300
                     }
-                    
-                } else {
-                    // 3. Outside the line
-                    
-                    print("NO: point is outside shape")
-                    
-                    panner.pan = 0.0
-                    
-                    oscillator.stop()
-                    oscillator2.amplitude = 0.5
-                    oscillator2.frequency = 200
-                    oscillator2.start()
-                    
-                    // Two cases
-                    // Finger is outside the line and inside the kitten: great! Level completed
-                    // Finger is outside the line but outside the kitten: restart
                     
                     if isInsideCat(point: initialPoint) {
                         print("Last point is inside element")
@@ -278,6 +229,24 @@ class Level2: UIViewController {
                         print("restart game")
                         UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
                     }
+                    
+                } else {
+                    // 3. Outside the line
+                    
+                    print("NO: point is outside shape")
+                    
+                    panner.pan = 0.0
+                    
+                    oscillator.stop()
+                    oscillator2.amplitude = 0.5
+                    oscillator2.frequency = 200
+                    oscillator2.start()
+                    
+                    startedFromKitten = false
+                    
+                    print("restart game")
+                    UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
+                    
                 }
             }
             
@@ -376,5 +345,15 @@ class Level2: UIViewController {
         let max = Double(self.view.frame.size.width / 2 - 32.5)
         let min = max + 75
         return abs(2 * ((num - min) / (max - min)) - 1)
+    }
+    
+    func distPointLine(point: CGPoint) -> Double {
+        let a = Double(1)
+        let b = Double(0)
+        let c = Double(self.view.frame.size.width / 2)
+        
+        let den = sqrt(pow(a, 2) + pow(b, 2))
+        
+        return abs(a * Double(point.x) + b * Double(point.y) - c) / den
     }
 }

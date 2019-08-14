@@ -60,8 +60,6 @@ class Level3: UIViewController {
     @IBOutlet var kitten: UIImageView!
     @IBOutlet var cat: UIImageView!
     
-    var thirdLevelShape: Shape!
-    var middleLineShape: Shape!
     
     var gameStarted: Bool = false
     
@@ -91,35 +89,7 @@ class Level3: UIViewController {
     // it is located between the cat and the kitten
     // it has the same heigth as the element
     
-    func createLine() -> Void {
-        
-        let kittenMaxX = kitten.frame.maxX
-        let catMinX = cat.frame.minX
-        
-        let shapeWidth: CGFloat = catMinX - kittenMaxX
-        
-        // Creates an accessibile rectangle shape
-        
-        thirdLevelShape = Shape(frame: CGRect(x: kittenMaxX,
-                                              y: self.view.frame.size.height / 2 - 32.5,
-                                              width: shapeWidth,
-                                              height: 75))
-        
-        middleLineShape = Shape(frame: CGRect(x: kittenMaxX,
-                                              y: self.view.frame.size.height / 2,
-                                              width: shapeWidth,
-                                              height: 10))
-        
-        thirdLevelShape.transform = CGAffineTransform(rotationAngle: -(CGFloat.pi / 8))
-        middleLineShape.transform = CGAffineTransform(rotationAngle: -(CGFloat.pi / 8))
-        
-        middleLineShape.backgroundColor = UIColor.black
-        thirdLevelShape.isAccessibilityElement = true
-        thirdLevelShape.accessibilityHint = "shape"
-        
-        self.view.addSubview(thirdLevelShape)
-        self.view.addSubview(middleLineShape)
-    }
+    
     
     // Detects panning on the shape and adds sonification based on the finger position
     
@@ -127,7 +97,7 @@ class Level3: UIViewController {
     var kittenFound = 0
     var levelCompleteCounter = 0
     
-    @IBAction func panDetector(_ gestureRecognizer: UIPanGestureRecognizer) {
+    /*@IBAction func panDetector(_ gestureRecognizer: UIPanGestureRecognizer) {
         
         let catSoundPath = Bundle.main.path(forResource: "cat.wav", ofType:nil)!
         let catSoundUrl = URL(fileURLWithPath: catSoundPath)
@@ -382,5 +352,5 @@ class Level3: UIViewController {
         let max = Double(self.view.frame.size.width / 2 - 32.5)
         let min = max + 75
         return abs(2 * ((num - min) / (max - min)) - 1)
-    }
+    }*/
 }
