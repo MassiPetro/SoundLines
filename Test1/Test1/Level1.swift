@@ -208,7 +208,7 @@ class Level1: UIViewController {
                 
                 // The finger is inside the line
                 
-                if (distPointLine(point: initialPoint) <= 37.5 && !isInsideKitten(point: initialPoint) && !isInsideCat(point: initialPoint)) {
+                if (distPointLine(point: initialPoint) <= 37.5) {
                     print("OK: point is inside shape, dist:", distPointLine(point: initialPoint))
                     
                     // 1. Inside the line but not in the center
@@ -217,6 +217,14 @@ class Level1: UIViewController {
                     oscillator.baseFrequency = 300 + 100 * normalizePointValue(num: Double(initialPoint.y))
                     oscillator.amplitude = 1
                     oscillator.start()
+                    
+                    if isInsideKitten(point: initialPoint) {
+                        oscillator.stop()
+                        UIAccessibility.post(notification: .announcement, argument: "Kitten")
+                    } else if isInsideCat(point: initialPoint) {
+                        oscillator.stop()
+                        UIAccessibility.post(notification: .announcement, argument: "Cat")
+                    }
                     
                     // 2. At the center of the line
                     
@@ -227,7 +235,26 @@ class Level1: UIViewController {
                         panner.pan = normalize(num: Double(initialPoint.x))
                         
                         oscillator.baseFrequency = 300
-                    } 
+                    }
+                    
+                    if isInsideCat(point: initialPoint) {
+                        print("Last point is inside element")
+                        
+                        if startedFromKitten {
+                            oscillator.stop()
+                            oscillator2.stop()
+                            
+                            gameStarted = false
+                            
+                            levelComplete = true
+                            
+                        }
+                        
+                    } else if !isInsideKitten(point: initialPoint) || startedFromKitten == false {
+                        print("Last point is outside element")
+                        print("restart game")
+                        UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
+                    }
                     
                 } else {
                     // 3. Outside the line
@@ -241,28 +268,11 @@ class Level1: UIViewController {
                     oscillator2.frequency = 200
                     oscillator2.start()
                     
-                    // Two cases
-                    // Finger is outside the line and inside the kitten: great! Level completed
-                    // Finger is outside the line but outside the kitten: restart
+                    startedFromKitten = false
                     
-                    if isInsideCat(point: initialPoint) {
-                        print("Last point is inside element")
-                        
-                        if startedFromKitten {
-                            oscillator.stop()
-                            oscillator2.stop()
-                            
-                            gameStarted = false
-                            
-                            levelComplete = true
+                    print("restart game")
+                    UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
                     
-                        }
-                        
-                    } else if !isInsideKitten(point: initialPoint) || startedFromKitten == false {
-                        print("Last point is outside element")
-                        print("restart game")
-                        UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
-                    }
                 }
             }
             
