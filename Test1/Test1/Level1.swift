@@ -48,6 +48,7 @@ class Level1: UIViewController {
         // Hides the kitten label
         
         kitten.isHidden = true
+        redLine.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -60,8 +61,7 @@ class Level1: UIViewController {
     
     @IBOutlet var cat: UIImageView!
     @IBOutlet var kitten: UIImageView!
-    
-    var firstLevelShape: Shape!
+    @IBOutlet var redLine: UIImageView!
     
     var gameStarted: Bool = false
     
@@ -92,27 +92,6 @@ class Level1: UIViewController {
     // it is located between the cat and the kitten
     // it has the same heigth as the element
     
-    func createLine() -> Void {
-        
-        let kittenMaxX = kitten.frame.maxX
-        let catMinX = cat.frame.minX
-        
-        let shapeWidth: CGFloat = catMinX - kittenMaxX
-        
-        // Creates an accessibile rectangle shape
-        
-        firstLevelShape = Shape(frame: CGRect(x: kittenMaxX,
-                                              y: self.view.frame.size.height / 2 - 37.5,
-                                              width: shapeWidth,
-                                              height: 75))
-        
-        firstLevelShape.isAccessibilityElement = true
-        firstLevelShape.accessibilityHint = "shape"
-        
-        
-        self.view.addSubview(firstLevelShape)
-    }
-    
     // Detects panning on the shape and adds sonification based on the finger position
     
     var catFound = 0
@@ -137,8 +116,6 @@ class Level1: UIViewController {
         // Updates the position for the .began, .changed, and .ended states
         
         if gameStarted == false && levelComplete == false {
-            
-            print("lunghezza rettangolo ",cat.frame.minX - kitten.frame.maxX)
         
             if isInsideCat(point: initialPoint) {
                 
@@ -153,6 +130,7 @@ class Level1: UIViewController {
                 catFound = catFound + 1
                 catShown = true
                 kitten.isHidden = false
+                redLine.isHidden = false
             } else {
                 catFound = 0
             }
@@ -168,9 +146,6 @@ class Level1: UIViewController {
                     kittenFound = kittenFound + 1
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                        // Create the line
-                        
-                        //self.createLine()
                         
                         // Start the game
                         
@@ -203,10 +178,6 @@ class Level1: UIViewController {
                 // 1. Inside the line but not in the center
                 // 2. At the center of the line
                 // 3. Outside the line
-                
-                print("middle: ",Double(self.view.frame.size.height / 2))
-                
-                print("dist:", distPointLine(point: initialPoint))
                 
                 // The finger is inside the line
                 

@@ -137,8 +137,10 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="RedLine" destination="xnv-tP-sr0" id="kpa-Vs-U3w"/>
                         <outlet property="cat" destination="rM0-B7-cqy" id="bah-6g-h7M"/>
                         <outlet property="kitten" destination="3qd-aL-Oay" id="Hgf-or-kFX"/>
+                        <outlet property="redLine" destination="xnv-tP-sr0" id="g0q-T3-7ne"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sI0-CR-DAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
