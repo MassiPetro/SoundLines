@@ -137,6 +137,8 @@ class Level1: UIViewController {
         // Updates the position for the .began, .changed, and .ended states
         
         if gameStarted == false && levelComplete == false {
+            
+            print("lunghezza rettangolo ",cat.frame.minX - kitten.frame.maxX)
         
             if isInsideCat(point: initialPoint) {
                 
@@ -168,7 +170,7 @@ class Level1: UIViewController {
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                         // Create the line
                         
-                        self.createLine()
+                        //self.createLine()
                         
                         // Start the game
                         
