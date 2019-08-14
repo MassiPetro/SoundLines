@@ -196,17 +196,7 @@ class Level1: UIViewController {
             if gestureRecognizer.state == .changed {
                 print(initialPoint)
                 print("norm:", normalizePointValue(num: Double(initialPoint.y)))
-
-                let firstLevelRect = firstLevelShape.getCGRect()
-                
-                let mainLine = self.view.frame.size.height / 2
-                let mainLineMinY = mainLine - 37.5
-                let mainLineMaxY = mainLine + 37.5
-                
-                let mainLineX = kitten.frame.maxX..<cat.frame.minX
-                let mainLineY = mainLineMinY..<mainLineMaxY
-                
-                
+          
                 // Distinguishes 3 cases based on the finger position:
                 // 1. Inside the line but not in the center
                 // 2. At the center of the line
@@ -218,18 +208,8 @@ class Level1: UIViewController {
                 
                 // The finger is inside the line
                 
-                if (/*mainLineX.contains(initialPoint.x) && mainLineY.contains(initialPoint.y)*/ distPointLine(point: initialPoint) <= 37.5) {
+                if (distPointLine(point: initialPoint) <= 37.5 && !isInsideKitten(point: initialPoint) && !isInsideCat(point: initialPoint)) {
                     print("OK: point is inside shape, dist:", distPointLine(point: initialPoint))
-                    
-                    
-                    // Creates a sub-shape which indicates the line center
-                    
-                    let screenMiddleLineY = self.view.frame.size.height / 2
-                    let middleLineMinY = screenMiddleLineY - 5
-                    let middleLineMaxY = screenMiddleLineY + 5
-                    
-                    let middleLineX = kitten.frame.maxX..<cat.frame.minX
-                    let middleLineY = middleLineMinY..<middleLineMaxY
                     
                     // 1. Inside the line but not in the center
                     
