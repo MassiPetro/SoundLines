@@ -74,6 +74,7 @@ class Level1: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        
         // Game logic: find the cat, find the kitten
         // When both are found create the line
         // If the kitten has been reached, go to the next level
@@ -101,12 +102,13 @@ class Level1: UIViewController {
         // Creates an accessibile rectangle shape
         
         firstLevelShape = Shape(frame: CGRect(x: kittenMaxX,
-                                              y: self.view.frame.size.height / 2 - 32.5,
+                                              y: self.view.frame.size.height / 2 - 37.5,
                                               width: shapeWidth,
                                               height: 75))
         
         firstLevelShape.isAccessibilityElement = true
         firstLevelShape.accessibilityHint = "shape"
+        
         
         self.view.addSubview(firstLevelShape)
     }
@@ -180,6 +182,7 @@ class Level1: UIViewController {
         
         if gameStarted == true {
             
+            
             if isInsideKitten(point: initialPoint) {
                 startingPoint = initialPoint
                 print("startingPoint 2: ", startingPoint)
@@ -196,15 +199,28 @@ class Level1: UIViewController {
 
                 let firstLevelRect = firstLevelShape.getCGRect()
                 
+                let mainLine = self.view.frame.size.height / 2
+                let mainLineMinY = mainLine - 37.5
+                let mainLineMaxY = mainLine + 37.5
+                
+                let mainLineX = kitten.frame.maxX..<cat.frame.minX
+                let mainLineY = mainLineMinY..<mainLineMaxY
+                
+                
                 // Distinguishes 3 cases based on the finger position:
                 // 1. Inside the line but not in the center
                 // 2. At the center of the line
                 // 3. Outside the line
                 
+                print("middle: ",Double(self.view.frame.size.height / 2))
+                
+                print("dist:", distPointLine(point: initialPoint))
+                
                 // The finger is inside the line
                 
-                if (firstLevelRect.contains(initialPoint)) {
-                    print("OK: point is inside shape")
+                if (/*mainLineX.contains(initialPoint.x) && mainLineY.contains(initialPoint.y)*/ distPointLine(point: initialPoint) <= 37.5) {
+                    print("OK: point is inside shape, dist:", distPointLine(point: initialPoint))
+                    
                     
                     // Creates a sub-shape which indicates the line center
                     
@@ -224,7 +240,7 @@ class Level1: UIViewController {
                     
                     // 2. At the center of the line
                     
-                    if(middleLineX.contains(initialPoint.x) && middleLineY.contains(initialPoint.y)) {
+                    if(distPointLine(point: initialPoint) <= 5) {
                         print("Inside the middle line")
                         oscillator2.stop()
                         
@@ -329,7 +345,7 @@ class Level1: UIViewController {
         }
     }
     
-    // Returns true if the passed point is inside the cat
+    // Returns true if the given point is inside the cat
     
     func isInsideCat(point: CGPoint) -> Bool {
         let catMaxX = cat.frame.maxX
@@ -341,7 +357,7 @@ class Level1: UIViewController {
             point.y >= catMinY && point.y <= catMaxY
     }
     
-    // Returns true if the passed point is inside the kitten
+    // Returns true if the given point is inside the kitten
     
     func isInsideKitten(point: CGPoint) -> Bool {
         let kittenMaxX = kitten.frame.maxX
@@ -366,4 +382,16 @@ class Level1: UIViewController {
         let min = max + 75
         return abs(2 * ((num - min) / (max - min)) - 1)
     }
+    
+    func distPointLine(point: CGPoint) -> Double {
+        let a = Double(0)
+        let b = Double(1)
+        let c = Double(self.view.frame.size.height / 2)
+        
+        let den = sqrt(pow(a, 2) + pow(b, 2))
+        
+        return abs(a * Double(point.x) + b * Double(point.y) - c) / den
+    }
+    
+    
 }

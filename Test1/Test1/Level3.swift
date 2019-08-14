@@ -219,25 +219,6 @@ class Level3: UIViewController {
                 
                 print("invertedInitialPoint", invertedInitialPoint)
                 
-                /*
-                 normale
-                 
-                 maxX: 542.0
-                 minX: 125.0
-                 maxY: 230.0
-                 minY: 155.0
-                 topRight = (542.0, 155.0) -> (maxX, minY)
-                 bottomRight = (542.0, 230.0) -> (maxX, maxY)
-                 topLeft = (125.0, 155.0) -> (minX, minY)
-                 bottomLeft = (125.0, 230.0) -> (minX, maxY)
-                 
-                 inv
-                 
-                 topRight = (442.0, 270.0) -> (maxX, minY)
-                 bottomRight = (442.0, 345.0) -> (maxX, maxY)
-                 topLeft = (25.0, 270.0) -> (minX, minY)
-                 bottomLeft = (25.0, 345 b1.0) -> (minX, maxY)
- */
                 
                 // Distinguishes 3 cases based on the finger position:
                 // 1. Inside the line but not in the center
@@ -260,16 +241,24 @@ class Level3: UIViewController {
                     
                     // 2. At the center of the line
                     
-                    let middleLineRect = middleLineShape.getCGRect()
+                    let toprightCorner = (view.frame.maxX, view.frame.maxY)
                     
-                    if(middleLineRect.contains(initialPoint)) {
+                    
+                    /*let screenMiddleLineY = toprightCorner
+                    let middleLineMinY = screenMiddleLineY - 5.0
+                    let middleLineMaxY = screenMiddleLineY + 5.0
+                    
+                    let middleLineX = kitten.frame.maxX..<cat.frame.minX
+                    let middleLineY = middleLineMinY..<middleLineMaxY
+                    
+                    if(middleLineX.contains(initialPoint.x) && middleLineY.contains(initialPoint.y)) {
                         print("Inside the middle line")
                         oscillator2.stop()
                         
                         panner.pan = normalize(num: Double(initialPoint.x))
                         
                         oscillator.baseFrequency = 300
-                    }
+                    }*/
                     
                 } else {
                     // 3. Outside the line

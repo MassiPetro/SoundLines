@@ -17,6 +17,7 @@ class Shape: UIView {
         // Sets shape color
         
         self.backgroundColor = UIColor.red
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
