@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ey2-Lz-gcD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ey2-Lz-gcD">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,9 +56,6 @@
                                 <rect key="frame" x="52" y="206" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="Uf4-ad-ubP" kind="show" id="klL-yS-y04"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -247,7 +244,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
-                                    <segue destination="Uf4-ad-ubP" kind="show" id="ThM-tF-N96"/>
+                                    <segue destination="hWi-WS-TWz" kind="show" id="AbA-nx-apm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNT-Xv-oQU">
@@ -272,49 +269,46 @@ Press play to continue.</string>
             <point key="canvasLocation" x="-94" y="3569"/>
         </scene>
         <!--Level3-->
-        <scene sceneID="WYw-wZ-xf3">
+        <scene sceneID="Hc7-U4-z3P">
             <objects>
-                <viewController id="Uf4-ad-ubP" customClass="Level3" customModule="Test1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="5Tl-Sw-WMU" customClass="Shape" customModule="Test1" customModuleProvider="target">
+                <viewController id="hWi-WS-TWz" customClass="Level3" customModule="Test1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6wg-eD-sPE">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diagonal-red-line (1)" translatesAutoresizingMaskIntoConstraints="NO" id="z34-ll-Ba9">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="376"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Kitten" translatesAutoresizingMaskIntoConstraints="NO" id="efp-GG-O0y">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Kitten" translatesAutoresizingMaskIntoConstraints="NO" id="a4p-Np-EnB">
                                 <rect key="frame" x="0.0" y="0.0" width="105" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cat" translatesAutoresizingMaskIntoConstraints="NO" id="QVR-oO-3J9">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cat" translatesAutoresizingMaskIntoConstraints="NO" id="1hc-fp-7cc">
                                 <rect key="frame" x="562" y="247" width="105" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diagonal-red-line (1)" translatesAutoresizingMaskIntoConstraints="NO" id="uTr-6o-1eu">
+                                <rect key="frame" x="82" y="54" width="497" height="264"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <accessibility key="accessibilityConfiguration">
-                            <accessibilityTraits key="traits" allowsDirectInteraction="YES"/>
-                            <bool key="isElement" value="YES"/>
-                        </accessibility>
-                        <viewLayoutGuide key="safeArea" id="rZJ-Un-fiu"/>
+                        <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="HYr-uc-fwq"/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="Zeh-pz-8Tp" appends="YES" id="OaQ-Ig-abV"/>
+                            <outletCollection property="gestureRecognizers" destination="DFf-rn-85b" appends="YES" id="scJ-xR-Iah"/>
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="cat" destination="QVR-oO-3J9" id="hW9-LO-Q3q"/>
-                        <outlet property="kitten" destination="efp-GG-O0y" id="fEL-fq-lDf"/>
+                        <outlet property="cat" destination="1hc-fp-7cc" id="Fua-wR-mhN"/>
+                        <outlet property="kitten" destination="a4p-Np-EnB" id="Vt2-dI-NOH"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OmQ-Ze-GPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Zeh-pz-8Tp">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bsm-9U-LAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="DFf-rn-85b">
                     <connections>
-                        <action selector="panDetector:" destination="Uf4-ad-ubP" id="8ue-Jy-3s0"/>
+                        <action selector="panDetector:" destination="hWi-WS-TWz" id="epA-DL-Ltj"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-94.002998500749626" y="4336.8000000000002"/>
+            <point key="canvasLocation" x="-93.103448275862078" y="4365.6000000000004"/>
         </scene>
     </scenes>
     <resources>
@@ -323,7 +317,4 @@ Press play to continue.</string>
         <image name="diagonal-red-line (1)" width="1313" height="746"/>
         <image name="horizontal-red-line" width="438" height="75"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="klL-yS-y04"/>
-    </inferredMetricsTieBreakers>
 </document>

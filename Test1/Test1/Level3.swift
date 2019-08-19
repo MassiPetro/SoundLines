@@ -97,6 +97,8 @@ class Level3: UIViewController {
     var kittenFound = 0
     var levelCompleteCounter = 0
     
+    
+    
     @IBAction func panDetector(_ gestureRecognizer: UIPanGestureRecognizer) {
         
         let catSoundPath = Bundle.main.path(forResource: "cat.wav", ofType:nil)!
