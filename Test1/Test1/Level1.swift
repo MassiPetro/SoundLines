@@ -146,7 +146,7 @@ class Level1: UIViewController {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                         
-                        redLine.isHidden = false
+                        self.redLine.isHidden = false
                         
                         // Start the game
                         
