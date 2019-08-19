@@ -338,13 +338,13 @@ class Level3: UIViewController {
     }
     
     func distPointLine(point: CGPoint) -> Double {
-        let a = Double(0)
-        let b = Double(373.5)
+        let a = Double(1)
+        let b = Double(1)
         
-        let m = -a/b
+        let m = 0.5
         
         let den = sqrt(1 + pow(m, 2))
         
-        return abs(b * Double(point.y) - a * Double(point.x)) / den
+        return abs(b * Double(point.y) - (m * a * Double(point.x))) / den
     }
 }

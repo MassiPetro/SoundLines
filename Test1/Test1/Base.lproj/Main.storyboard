@@ -280,7 +280,7 @@ Press play to continue.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Kitten" translatesAutoresizingMaskIntoConstraints="NO" id="efp-GG-O0y">
-                                <rect key="frame" x="0.0" y="294" width="105" height="81"/>
+                                <rect key="frame" x="0.0" y="0.0" width="105" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="horizontal-red-line" translatesAutoresizingMaskIntoConstraints="NO" id="rna-CG-0Y5">
@@ -288,7 +288,7 @@ Press play to continue.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cat" translatesAutoresizingMaskIntoConstraints="NO" id="QVR-oO-3J9">
-                                <rect key="frame" x="562" y="0.0" width="105" height="128"/>
+                                <rect key="frame" x="562" y="247" width="105" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
