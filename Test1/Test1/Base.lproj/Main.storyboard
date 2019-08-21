@@ -56,6 +56,9 @@
                                 <rect key="frame" x="52" y="206" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="hWi-WS-TWz" kind="show" id="K1K-ZR-uBq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -284,8 +287,8 @@ Press play to continue.</string>
                                 <rect key="frame" x="562" y="247" width="105" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diagonal-red-line (1)" translatesAutoresizingMaskIntoConstraints="NO" id="uTr-6o-1eu">
-                                <rect key="frame" x="82" y="54" width="497" height="264"/>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="horizontal-red-line" translatesAutoresizingMaskIntoConstraints="NO" id="OUK-tH-EP6">
+                                <rect key="frame" x="83" y="150" width="500" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -299,6 +302,7 @@ Press play to continue.</string>
                     <connections>
                         <outlet property="cat" destination="1hc-fp-7cc" id="Fua-wR-mhN"/>
                         <outlet property="kitten" destination="a4p-Np-EnB" id="Vt2-dI-NOH"/>
+                        <outlet property="line" destination="OUK-tH-EP6" id="69y-Ug-NDU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bsm-9U-LAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -314,7 +318,9 @@ Press play to continue.</string>
     <resources>
         <image name="Cat" width="86" height="114"/>
         <image name="Kitten" width="72" height="73"/>
-        <image name="diagonal-red-line (1)" width="1313" height="746"/>
         <image name="horizontal-red-line" width="438" height="75"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="K1K-ZR-uBq"/>
+    </inferredMetricsTieBreakers>
 </document>

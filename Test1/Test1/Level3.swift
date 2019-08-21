@@ -47,6 +47,8 @@ class Level3: UIViewController {
         // Hides the kitten label
         
         kitten.isHidden = true
+        
+        //drawLineFromPoint(start : CGPoint(x: 1.0, y: 1.0), toPoint:CGPoint(x: 667.0, y: 375.0))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,7 +61,7 @@ class Level3: UIViewController {
     
     @IBOutlet var kitten: UIImageView!
     @IBOutlet var cat: UIImageView!
-    
+    @IBOutlet var line: UIImageView!
     
     var gameStarted: Bool = false
     
@@ -71,6 +73,8 @@ class Level3: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        self.line.transform = CGAffineTransform(rotationAngle: 0.51)
         
         // Game logic: find the cat, find the kitten
         // When both are found create the line
@@ -89,15 +93,11 @@ class Level3: UIViewController {
     // it is located between the cat and the kitten
     // it has the same heigth as the element
     
-    
-    
     // Detects panning on the shape and adds sonification based on the finger position
     
     var catFound = 0
     var kittenFound = 0
     var levelCompleteCounter = 0
-    
-    
     
     @IBAction func panDetector(_ gestureRecognizer: UIPanGestureRecognizer) {
         
@@ -340,13 +340,29 @@ class Level3: UIViewController {
     }
     
     func distPointLine(point: CGPoint) -> Double {
-        let a = Double(0.5)
-        let b = Double(0.5)
+        let a = Double(1)
+        let b = Double(1)
         
-        let m = 0.5
+        let m = 187.0/333.0
         
         let den = sqrt(1 + pow(m, 2))
         
-        return abs(b * Double(point.y) - (m * a * Double(point.x))) / den
+        return abs(b * Double(point.y) - (m * a * Double(point.x) + 146.0/333.0)) / den
+    }
+    
+    func drawLineFromPoint(start : CGPoint, toPoint end:CGPoint) {
+        
+        //design the path
+        var path = UIBezierPath()
+        path.move(to: start)
+        path.addLine(to: end)
+        
+        //design path in layer
+        var shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.lineWidth = 75.0
+        
+        view.layer.addSublayer(shapeLayer)
     }
 }

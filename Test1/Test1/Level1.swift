@@ -49,6 +49,7 @@ class Level1: UIViewController {
         
         kitten.isHidden = true
         redLine.isHidden = true
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
