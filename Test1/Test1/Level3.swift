@@ -24,6 +24,8 @@ class Level3: UIViewController {
     var catSound: AVAudioPlayer?
     var kittenSound: AVAudioPlayer?
     
+    var diagonalAngle = Double()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +49,15 @@ class Level3: UIViewController {
         // Hides the kitten label
         
         kitten.isHidden = true
+        
+        // Hides the graphical line
+        
+        line.isHidden = true
+        
+        // Calculates diagonalAngle and rotates the image representing the line accordingly
+        
+        diagonalAngle = Double(atan(self.view.frame.size.height / self.view.frame.size.width))
+        self.line.transform = CGAffineTransform(rotationAngle: CGFloat(diagonalAngle))
         
         //drawLineFromPoint(start : CGPoint(x: 1.0, y: 1.0), toPoint:CGPoint(x: 667.0, y: 375.0))
     }
@@ -73,8 +84,6 @@ class Level3: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        self.line.transform = CGAffineTransform(rotationAngle: 0.51)
         
         // Game logic: find the cat, find the kitten
         // When both are found create the line
@@ -148,7 +157,7 @@ class Level3: UIViewController {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                         
-                        //redLine.isHidden = false
+                        self.line.isHidden = false
                         
                         // Start the game
                         
@@ -343,7 +352,8 @@ class Level3: UIViewController {
         let a = Double(1)
         let b = Double(1)
         
-        let m = 187.0/333.0
+        //let m = 187.0/333.0
+        let m = tan(diagonalAngle)
         
         let den = sqrt(1 + pow(m, 2))
         
