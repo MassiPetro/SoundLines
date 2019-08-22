@@ -58,8 +58,6 @@ class Level3: UIViewController {
         
         diagonalAngle = Double(atan(self.view.frame.size.height / self.view.frame.size.width))
         self.line.transform = CGAffineTransform(rotationAngle: CGFloat(diagonalAngle))
-        
-        //drawLineFromPoint(start : CGPoint(x: 1.0, y: 1.0), toPoint:CGPoint(x: 667.0, y: 375.0))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -181,9 +179,7 @@ class Level3: UIViewController {
             }
             
             if gestureRecognizer.state == .changed {
-                print(initialPoint)
-                print("norm:", normalizePointValue(num: Double(initialPoint.y)))
-                
+                print(initialPoint)                
                 
                 // Distinguishes 3 cases based on the finger position:
                 // 1. Inside the line but not in the center
@@ -198,7 +194,7 @@ class Level3: UIViewController {
                     // 1. Inside the line but not in the center
                     
                     oscillator2.stop()
-                    oscillator.baseFrequency = 300 + 100 * normalizePointValue(num: Double(initialPoint.y))
+                    oscillator.baseFrequency = 300 + 10 * distPointLine(point: initialPoint)
                     oscillator.amplitude = 1
                     oscillator.start()
                     
@@ -231,7 +227,6 @@ class Level3: UIViewController {
                             gameStarted = false
                             
                             levelComplete = true
-                            
                         }
                         
                     } else if !isInsideKitten(point: initialPoint) || startedFromKitten == false {
@@ -256,7 +251,6 @@ class Level3: UIViewController {
                     
                     print("restart game")
                     UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
-                    
                 }
             }
             
@@ -341,38 +335,15 @@ class Level3: UIViewController {
         let max = Double(cat.frame.maxX - 10)
         return 2 * ((num - min) / (max - min)) - 1
     }
-    
-    func normalizePointValue(num: Double) -> Double {
-        let max = Double(self.view.frame.size.width / 2 - 32.5)
-        let min = max + 75
-        return abs(2 * ((num - min) / (max - min)) - 1)
-    }
-    
+
     func distPointLine(point: CGPoint) -> Double {
         let a = Double(1)
         let b = Double(1)
         
-        //let m = 187.0/333.0
         let m = tan(diagonalAngle)
         
         let den = sqrt(1 + pow(m, 2))
         
         return abs(b * Double(point.y) - (m * a * Double(point.x) + 146.0/333.0)) / den
-    }
-    
-    func drawLineFromPoint(start : CGPoint, toPoint end:CGPoint) {
-        
-        //design the path
-        var path = UIBezierPath()
-        path.move(to: start)
-        path.addLine(to: end)
-        
-        //design path in layer
-        var shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.cgPath
-        shapeLayer.strokeColor = UIColor.black.cgColor
-        shapeLayer.lineWidth = 75.0
-        
-        view.layer.addSublayer(shapeLayer)
     }
 }

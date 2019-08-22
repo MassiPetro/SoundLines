@@ -42,14 +42,12 @@ class Level1: UIViewController {
         
         AKSettings.playbackWhileMuted = true
         
-        
         try! AudioKit.start()
         
         // Hides the kitten label
         
         kitten.isHidden = true
         redLine.isHidden = true
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -74,7 +72,6 @@ class Level1: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         
         // Game logic: find the cat, find the kitten
         // When both are found create the line
@@ -161,7 +158,6 @@ class Level1: UIViewController {
         
         if gameStarted == true {
             
-            
             if isInsideKitten(point: initialPoint) {
                 startingPoint = initialPoint
                 print("startingPoint 2: ", startingPoint)
@@ -169,12 +165,10 @@ class Level1: UIViewController {
                 startedFromKitten = true
                 
                 UIAccessibility.post(notification: .announcement, argument: "Kitten")
-                
             }
             
             if gestureRecognizer.state == .changed {
                 print(initialPoint)
-                print("norm:", normalizePointValue(num: Double(initialPoint.y)))
           
                 // Distinguishes 3 cases based on the finger position:
                 // 1. Inside the line but not in the center
@@ -189,7 +183,7 @@ class Level1: UIViewController {
                     // 1. Inside the line but not in the center
                     
                     oscillator2.stop()
-                    oscillator.baseFrequency = 300 + 100 * normalizePointValue(num: Double(initialPoint.y))
+                    oscillator.baseFrequency = 300 + 10 * distPointLine(point: initialPoint)
                     oscillator.amplitude = 1
                     oscillator.start()
                     
@@ -222,7 +216,6 @@ class Level1: UIViewController {
                             gameStarted = false
                             
                             levelComplete = true
-                            
                         }
                         
                     } else if !isInsideKitten(point: initialPoint) || startedFromKitten == false {
@@ -247,7 +240,6 @@ class Level1: UIViewController {
                     
                     print("restart game")
                     UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
-                    
                 }
             }
             
@@ -281,7 +273,6 @@ class Level1: UIViewController {
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let level2Screen = storyBoard.instantiateViewController(withIdentifier: "level2screen")
                 self.present(level2Screen, animated: true, completion: nil)
-                
             })
         }
         
@@ -342,12 +333,6 @@ class Level1: UIViewController {
         return 2 * ((num - min) / (max - min)) - 1
     }
     
-    func normalizePointValue(num: Double) -> Double {
-        let max = Double(self.view.frame.size.height / 2 - 32.5)
-        let min = max + 75
-        return abs(2 * ((num - min) / (max - min)) - 1)
-    }
-    
     func distPointLine(point: CGPoint) -> Double {
         let a = Double(0)
         let b = Double(1)
@@ -357,6 +342,4 @@ class Level1: UIViewController {
         
         return abs(a * Double(point.x) + b * Double(point.y) - c) / den
     }
-    
-    
 }

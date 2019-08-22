@@ -173,7 +173,6 @@ class Level2: UIViewController {
             
             if gestureRecognizer.state == .changed {
                 print(initialPoint)
-                print("norm:", normalizePointValue(num: Double(initialPoint.y)))
                 
                 // Distinguishes 3 cases based on the finger position:
                 // 1. Inside the line but not in the center
@@ -188,7 +187,7 @@ class Level2: UIViewController {
                     // 1. Inside the line but not in the center
                     
                     oscillator2.stop()
-                    oscillator.baseFrequency = 300 + 100 * normalizePointValue(num: Double(initialPoint.x))
+                    oscillator.baseFrequency = 300 + 10 * distPointLine(point: initialPoint)
                     oscillator.amplitude = 1
                     oscillator.start()
                     
@@ -340,13 +339,7 @@ class Level2: UIViewController {
         let max = Double(cat.frame.maxX - 10)
         return 2 * ((num - min) / (max - min)) - 1
     }
-    
-    func normalizePointValue(num: Double) -> Double {
-        let max = Double(self.view.frame.size.width / 2 - 32.5)
-        let min = max + 75
-        return abs(2 * ((num - min) / (max - min)) - 1)
-    }
-    
+
     func distPointLine(point: CGPoint) -> Double {
         let a = Double(1)
         let b = Double(0)

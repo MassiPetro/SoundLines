@@ -52,14 +52,6 @@
                                     <segue destination="BeI-sM-HcF" kind="show" id="m7o-ST-XD7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkb-td-xXy">
-                                <rect key="frame" x="52" y="206" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="hWi-WS-TWz" kind="show" id="K1K-ZR-uBq"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -324,7 +316,4 @@ Press play to continue.</string>
         <image name="Kitten" width="72" height="73"/>
         <image name="horizontal-red-line" width="438" height="75"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="AbA-nx-apm"/>
-    </inferredMetricsTieBreakers>
 </document>
