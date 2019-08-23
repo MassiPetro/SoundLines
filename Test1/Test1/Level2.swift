@@ -117,7 +117,7 @@ class Level2: UIViewController {
         
         if gameStarted == false && levelComplete == false {
             
-            if isInsideCat(point: initialPoint) {
+            if Utility.isInsideCat(cat: cat, point: initialPoint) {
                 
                 // If it is the first time finding the cat tell the user it has been found
                 // and show the kitten
@@ -136,7 +136,7 @@ class Level2: UIViewController {
             
             if catShown == true {
                 
-                if isInsideKitten(point: initialPoint) {
+                if Utility.isInsideKitten(kitten: kitten, point: initialPoint) {
                     
                     startingPoint = initialPoint
                     print("startingPoint 2: ", startingPoint)
@@ -161,7 +161,7 @@ class Level2: UIViewController {
         
         if gameStarted == true {
             
-            if isInsideKitten(point: initialPoint) {
+            if Utility.isInsideKitten(kitten: kitten, point: initialPoint) {
                 startingPoint = initialPoint
                 print("startingPoint 2: ", startingPoint)
                 
@@ -191,26 +191,26 @@ class Level2: UIViewController {
                     oscillator.amplitude = 1
                     oscillator.start()
                     
-                    if isInsideKitten(point: initialPoint) {
+                    if Utility.isInsideKitten(kitten: kitten, point: initialPoint) {
                         oscillator.stop()
                         UIAccessibility.post(notification: .announcement, argument: "Kitten")
-                    } else if isInsideCat(point: initialPoint) {
+                    } else if Utility.isInsideCat(cat: cat, point: initialPoint) {
                         oscillator.stop()
                         UIAccessibility.post(notification: .announcement, argument: "Cat")
                     }
                     
                     // 2. At the center of the line
                     
-                    if(distPointLine(point: initialPoint) <= 5) {
+                    if (distPointLine(point: initialPoint) <= 5) {
                         print("Inside the middle line")
                         oscillator2.stop()
                         
-                        panner.pan = normalize(num: Double(initialPoint.x))
+                        panner.pan = Utility.normalizePannerValue(cat: cat, kitten: kitten, num: Double(initialPoint.x))
                         
                         oscillator.baseFrequency = 300
                     }
                     
-                    if isInsideCat(point: initialPoint) {
+                    if Utility.isInsideCat(cat: cat, point: initialPoint) {
                         print("Last point is inside element")
                         
                         if startedFromKitten {
@@ -223,7 +223,7 @@ class Level2: UIViewController {
                             
                         }
                         
-                    } else if !isInsideKitten(point: initialPoint) || startedFromKitten == false {
+                    } else if !Utility.isInsideKitten(kitten: kitten, point: initialPoint) || startedFromKitten == false {
                         print("Last point is outside element")
                         print("restart game")
                         UIAccessibility.post(notification: .announcement, argument: "Go back and follow the line")
@@ -306,38 +306,6 @@ class Level2: UIViewController {
             
             UIAccessibility.post(notification: .announcement, argument: "You found the kitten! Follow the line to connect the kitten to the cat")
         }
-    }
-    
-    // Returns true if the passed point is inside the cat
-    
-    func isInsideCat(point: CGPoint) -> Bool {
-        let catMaxX = cat.frame.maxX
-        let catMinX = cat.frame.minX
-        let catMaxY = cat.frame.maxY
-        let catMinY = cat.frame.minY
-        
-        return point.x >= catMinX && point.x <= catMaxX &&
-            point.y >= catMinY && point.y <= catMaxY
-    }
-    
-    // Returns true if the passed point is inside the kitten
-    
-    func isInsideKitten(point: CGPoint) -> Bool {
-        let kittenMaxX = kitten.frame.maxX
-        let kittenMinX = kitten.frame.minX
-        let kittenMaxY = kitten.frame.maxY
-        let kittenMinY = kitten.frame.minY
-        
-        return point.x >= kittenMinX && point.x <= kittenMaxX &&
-            point.y >= kittenMinY && point.y <= kittenMaxY
-    }
-    
-    // Normalizes double values for AudioKit panner
-    
-    func normalize(num: Double) -> Double {
-        let min = Double(kitten.frame.minX + 10)
-        let max = Double(cat.frame.maxX - 10)
-        return 2 * ((num - min) / (max - min)) - 1
     }
 
     func distPointLine(point: CGPoint) -> Double {
