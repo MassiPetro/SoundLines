@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/Fede/Documents/SoundLines/Test1/Test1/Utility.swift">
-   </FileRef>
-   <FileRef
       location = "group:Test1.xcodeproj">
    </FileRef>
    <FileRef

@@ -13,6 +13,8 @@
 		8B53558C22DE035C00569401 /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B53558B22DE035C00569401 /* Level2.swift */; };
 		8B53558F22DE210600569401 /* cat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B53558D22DE210600569401 /* cat.wav */; };
 		8B8A081023102DDF00AA8562 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A080F23102DDF00AA8562 /* Utility.swift */; };
+		8BBCAB0723147CFC00115E6E /* FinalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCAB0623147CFC00115E6E /* FinalScreen.swift */; };
+		8BC2291F231456F70021593E /* OldSansBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BC2291E231456F70021593E /* OldSansBlack.ttf */; };
 		8BCFC82522E4AABA00A668A8 /* Level3Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFC82422E4AABA00A668A8 /* Level3Screen.swift */; };
 		8BCFC82722E4AB4B00A668A8 /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFC82622E4AB4B00A668A8 /* Level3.swift */; };
 		8BECA501230AEBBA00A34EAC /* kitten.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8BECA500230AEBBA00A34EAC /* kitten.wav */; };
@@ -68,6 +70,8 @@
 		8B53558B22DE035C00569401 /* Level2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level2.swift; sourceTree = "<group>"; };
 		8B53558D22DE210600569401 /* cat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cat.wav; sourceTree = "<group>"; };
 		8B8A080F23102DDF00AA8562 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = /Users/Fede/Documents/SoundLines/Test1/Test1/Utility.swift; sourceTree = "<absolute>"; };
+		8BBCAB0623147CFC00115E6E /* FinalScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScreen.swift; sourceTree = "<group>"; };
+		8BC2291E231456F70021593E /* OldSansBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OldSansBlack.ttf; sourceTree = "<group>"; };
 		8BCFC82422E4AABA00A668A8 /* Level3Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3Screen.swift; sourceTree = "<group>"; };
 		8BCFC82622E4AB4B00A668A8 /* Level3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
 		8BECA500230AEBBA00A34EAC /* kitten.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = kitten.wav; path = ../../../../Desktop/kitten.wav; sourceTree = "<group>"; };
@@ -174,7 +178,9 @@
 				9EB4505C22B28D8C00AA962B /* AppDelegate.swift */,
 				9EB4505E22B28D8C00AA962B /* Level2Screen.swift */,
 				8BCFC82422E4AABA00A668A8 /* Level3Screen.swift */,
+				8BBCAB0623147CFC00115E6E /* FinalScreen.swift */,
 				9EB4506022B28D8C00AA962B /* Main.storyboard */,
+				8BC2291E231456F70021593E /* OldSansBlack.ttf */,
 				8BCFC82622E4AB4B00A668A8 /* Level3.swift */,
 				8BEDB45822CE578D00BEDAEC /* Level1Screen.swift */,
 				9EC9A84622C225CF00ACC168 /* Level1.swift */,
@@ -316,6 +322,7 @@
 				9EB4506722B28D8E00AA962B /* LaunchScreen.storyboard in Resources */,
 				9EB4506422B28D8E00AA962B /* Assets.xcassets in Resources */,
 				8BECA501230AEBBA00A34EAC /* kitten.wav in Resources */,
+				8BC2291F231456F70021593E /* OldSansBlack.ttf in Resources */,
 				9EB4506222B28D8C00AA962B /* Main.storyboard in Resources */,
 				8B53558F22DE210600569401 /* cat.wav in Resources */,
 			);
@@ -419,6 +426,7 @@
 				9EB4505F22B28D8C00AA962B /* Level2Screen.swift in Sources */,
 				9EB4505D22B28D8C00AA962B /* AppDelegate.swift in Sources */,
 				8B53558C22DE035C00569401 /* Level2.swift in Sources */,
+				8BBCAB0723147CFC00115E6E /* FinalScreen.swift in Sources */,
 				8BEDB45922CE578D00BEDAEC /* Level1Screen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
