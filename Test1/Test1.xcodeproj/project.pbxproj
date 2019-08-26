@@ -172,23 +172,23 @@
 		9EB4505B22B28D8C00AA962B /* Test1 */ = {
 			isa = PBXGroup;
 			children = (
-				8B8A080F23102DDF00AA8562 /* Utility.swift */,
-				8B53558D22DE210600569401 /* cat.wav */,
-				8BECA500230AEBBA00A34EAC /* kitten.wav */,
 				9EB4505C22B28D8C00AA962B /* AppDelegate.swift */,
+				8BEDB45622CE550A00BEDAEC /* OpenScreen.swift */,
+				8BEDB45822CE578D00BEDAEC /* Level1Screen.swift */,
 				9EB4505E22B28D8C00AA962B /* Level2Screen.swift */,
 				8BCFC82422E4AABA00A668A8 /* Level3Screen.swift */,
 				8BBCAB0623147CFC00115E6E /* FinalScreen.swift */,
-				9EB4506022B28D8C00AA962B /* Main.storyboard */,
-				8BC2291E231456F70021593E /* OldSansBlack.ttf */,
-				8BCFC82622E4AB4B00A668A8 /* Level3.swift */,
-				8BEDB45822CE578D00BEDAEC /* Level1Screen.swift */,
 				9EC9A84622C225CF00ACC168 /* Level1.swift */,
 				8B53558B22DE035C00569401 /* Level2.swift */,
-				9EB4506322B28D8E00AA962B /* Assets.xcassets */,
+				8BCFC82622E4AB4B00A668A8 /* Level3.swift */,
+				8B8A080F23102DDF00AA8562 /* Utility.swift */,
+				9EB4506022B28D8C00AA962B /* Main.storyboard */,
 				9EB4506522B28D8E00AA962B /* LaunchScreen.storyboard */,
+				9EB4506322B28D8E00AA962B /* Assets.xcassets */,
 				9EB4506822B28D8E00AA962B /* Info.plist */,
-				8BEDB45622CE550A00BEDAEC /* OpenScreen.swift */,
+				8B53558D22DE210600569401 /* cat.wav */,
+				8BECA500230AEBBA00A34EAC /* kitten.wav */,
+				8BC2291E231456F70021593E /* OldSansBlack.ttf */,
 			);
 			path = Test1;
 			sourceTree = "<group>";

@@ -277,6 +277,15 @@ class Level3: UIViewController {
             } catch {
                 // couldn't load file :(
             }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                try! AudioKit.stop()
+                
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let finalScreen = storyBoard.instantiateViewController(withIdentifier: "finalscreen")
+                self.present(finalScreen, animated: true, completion: nil)
+                
+            })
         }
         
         if catFound == 1 {
