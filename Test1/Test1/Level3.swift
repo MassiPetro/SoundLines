@@ -282,7 +282,7 @@ class Level3: UIViewController {
                 try! AudioKit.stop()
                 
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let finalScreen = storyBoard.instantiateViewController(withIdentifier: "finalscreen")
+                let finalScreen = storyBoard.instantiateViewController(withIdentifier: "FinalScreen")
                 self.present(finalScreen, animated: true, completion: nil)
                 
             })
