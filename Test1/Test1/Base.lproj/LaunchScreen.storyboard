@@ -18,12 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="soundlines-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="1ER-Mg-mD3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="soundlines-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="1ER-Mg-mD3">
                                 <rect key="frame" x="170" y="123" width="326" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1ER-Mg-mD3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="123" id="8k5-HJ-Ynk"/>
+                            <constraint firstItem="1ER-Mg-mD3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="C8a-xW-zV0"/>
+                            <constraint firstItem="1ER-Mg-mD3" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="S27-cA-wJN"/>
+                            <constraint firstItem="1ER-Mg-mD3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="170" id="uPX-pP-rWt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
