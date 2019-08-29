@@ -18,7 +18,8 @@ class Level1Screen: UIViewController {
         
         // Reads label if VoiceOver is activated
         
-        UIAccessibility.post(notification: .announcement, argument: "Level One: find the kitten, the cat and connect them following the horizontal line. Press play to continue.")
-
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+            UIAccessibility.post(notification: .announcement, argument: "First, find the cat and the kitten. Then connect the kitten to the cat following the horizontal line. The sound will help you to know if it's the right path. Press play to continue.")
+        })
     }
 }

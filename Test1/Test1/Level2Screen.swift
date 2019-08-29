@@ -14,6 +14,10 @@ class Level2Screen: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(6), execute: {
+            UIAccessibility.post(notification: .announcement, argument: "The line is now vertical. Just like before, find the cat and the kitten and connect them following the line. Press play to continue.")
+        })
     }
     
 }

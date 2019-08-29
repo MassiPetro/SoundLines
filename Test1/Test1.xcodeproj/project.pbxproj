@@ -17,6 +17,7 @@
 		8B8A081023102DDF00AA8562 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A080F23102DDF00AA8562 /* Utility.swift */; };
 		8BBCAB0723147CFC00115E6E /* FinalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCAB0623147CFC00115E6E /* FinalScreen.swift */; };
 		8BC2291F231456F70021593E /* OldSansBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BC2291E231456F70021593E /* OldSansBlack.ttf */; };
+		8BC88D21231833A800ABC2D1 /* kitten-icon-large.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BC88D20231833A700ABC2D1 /* kitten-icon-large.png */; };
 		8BCFC82522E4AABA00A668A8 /* Level3Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFC82422E4AABA00A668A8 /* Level3Screen.swift */; };
 		8BCFC82722E4AB4B00A668A8 /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFC82622E4AB4B00A668A8 /* Level3.swift */; };
 		8BEDB45722CE550A00BEDAEC /* OpenScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDB45622CE550A00BEDAEC /* OpenScreen.swift */; };
@@ -76,6 +77,7 @@
 		8B8A080F23102DDF00AA8562 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = /Users/Fede/Documents/SoundLines/Test1/Test1/Utility.swift; sourceTree = "<absolute>"; };
 		8BBCAB0623147CFC00115E6E /* FinalScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScreen.swift; sourceTree = "<group>"; };
 		8BC2291E231456F70021593E /* OldSansBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OldSansBlack.ttf; sourceTree = "<group>"; };
+		8BC88D20231833A700ABC2D1 /* kitten-icon-large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kitten-icon-large.png"; sourceTree = "<group>"; };
 		8BCFC82422E4AABA00A668A8 /* Level3Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3Screen.swift; sourceTree = "<group>"; };
 		8BCFC82622E4AB4B00A668A8 /* Level3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
 		8BDEDBCB23159FA100D98E43 /* soundlines-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "soundlines-logo.png"; path = "../soundlines-logo.png"; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				9EB4506822B28D8E00AA962B /* Info.plist */,
 				8BFC977A2316EC8000272EBB /* cat-icon-1.png */,
 				8BFC977B2316EC8000272EBB /* kitten-icon-1.png */,
+				8BC88D20231833A700ABC2D1 /* kitten-icon-large.png */,
 				8BDEDBCB23159FA100D98E43 /* soundlines-logo.png */,
 				8B53558D22DE210600569401 /* cat.wav */,
 				8B60149523159BC900ECC34F /* kitten.wav */,
@@ -333,6 +336,7 @@
 				8BFC977D2316EC8100272EBB /* kitten-icon-1.png in Resources */,
 				9EB4506422B28D8E00AA962B /* Assets.xcassets in Resources */,
 				8BC2291F231456F70021593E /* OldSansBlack.ttf in Resources */,
+				8BC88D21231833A800ABC2D1 /* kitten-icon-large.png in Resources */,
 				9EB4506222B28D8C00AA962B /* Main.storyboard in Resources */,
 				8B60149623159BC900ECC34F /* kitten.wav in Resources */,
 				8B53558F22DE210600569401 /* cat.wav in Resources */,

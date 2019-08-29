@@ -14,5 +14,9 @@ class Level3Screen: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(6), execute: {
+            UIAccessibility.post(notification: .announcement, argument: "The line is now diagonal. Press play to continue.")
+        })
     }
 }
