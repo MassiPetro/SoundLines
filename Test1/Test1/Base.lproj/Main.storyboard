@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ey2-Lz-gcD">
-    <device id="retina6_1" orientation="landscape">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -20,7 +20,7 @@
             <objects>
                 <navigationController id="ey2-Lz-gcD" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wQM-5u-tHl">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -36,11 +36,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="OpenScreen" customModule="Test1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOUNDLINES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Peh-fI-cTt">
-                                <rect key="frame" x="64" y="64" width="768" height="62"/>
+                                <rect key="frame" x="20" y="52" width="627" height="62"/>
                                 <accessibility key="accessibilityConfiguration" hint="openScreenLabel" identifier="openScreenLabel" label="SoundLines">
                                     <accessibilityTraits key="traits" selected="YES" staticText="YES"/>
                                 </accessibility>
@@ -66,7 +66,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qA-6l-CAy">
-                                <rect key="frame" x="64" y="154" width="768" height="117"/>
+                                <rect key="frame" x="20" y="142" width="627" height="90"/>
                                 <accessibility key="accessibilityConfiguration" hint="openScreenLabel" identifier="openScreenLabel">
                                     <string key="label">Help a kitten play with its cat friend: you just need to connect them with a line! Ready? Press the play button to start the game.</string>
                                     <accessibilityTraits key="traits" selected="YES" staticText="YES"/>
@@ -104,11 +104,11 @@
             <objects>
                 <viewController id="BeI-sM-HcF" customClass="Level1Screen" customModule="Test1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vdp-TD-I80">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9s-aJ-48z">
-                                <rect key="frame" x="277" y="314" width="342" height="80"/>
+                                <rect key="frame" x="233" y="275" width="201" height="80"/>
                                 <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="gPI-G0-cFz"/>
@@ -122,7 +122,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxl-r7-uYF">
-                                <rect key="frame" x="368" y="21" width="160" height="80"/>
+                                <rect key="frame" x="253.5" y="21" width="160" height="62"/>
                                 <accessibility key="accessibilityConfiguration" hint="levelOneScreenLabel" identifier="levelOneScreenLabel" label="Level One">
                                     <accessibilityTraits key="traits" staticText="YES"/>
                                 </accessibility>
@@ -131,7 +131,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0I-ja-Lk2">
-                                <rect key="frame" x="64" y="127" width="768" height="159"/>
+                                <rect key="frame" x="20" y="127" width="627" height="120"/>
                                 <accessibility key="accessibilityConfiguration" hint="LevelOneExplanationLabel" identifier="LevelOneExplanationLabel">
                                     <string key="label">First, find the cat and the kitten. Then connect the kitten to the cat following the horizontal line. The sound will help you to know if it's the right path. Press play to continue.</string>
                                     <accessibilityTraits key="traits" staticText="YES"/>
@@ -167,11 +167,11 @@
             <objects>
                 <viewController id="U9f-C4-f8l" customClass="Level1" customModule="Test1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BWL-VK-V8C">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitten-icon-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="3qd-aL-Oay">
-                                <rect key="frame" x="64" y="118" width="90" height="178"/>
+                                <rect key="frame" x="20" y="118" width="90" height="139"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="QXr-Vf-lbp"/>
                                 </constraints>
@@ -227,11 +227,11 @@
             <objects>
                 <viewController storyboardIdentifier="Level2Screen" id="UOM-CP-eIa" customClass="Level2Screen" customModule="Test1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ocS-6Q-WtW">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qio-im-CdI">
-                                <rect key="frame" x="64" y="121" width="768" height="151"/>
+                                <rect key="frame" x="20" y="142" width="627" height="91"/>
                                 <accessibility key="accessibilityConfiguration" hint="LevelTwoExplanationLabel" identifier="LevelTwoExplanationLabel">
                                     <string key="label">The line is now vertical. Just like before, find the cat and the kitten and connect them following the line. Press play to continue.</string>
                                     <accessibilityTraits key="traits" selected="YES" staticText="YES"/>
@@ -242,7 +242,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljd-Y2-caC">
-                                <rect key="frame" x="337.5" y="314" width="221" height="80"/>
+                                <rect key="frame" x="233.5" y="275" width="200" height="80"/>
                                 <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="tEc-6h-Knz"/>
@@ -256,7 +256,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRf-0G-G8L">
-                                <rect key="frame" x="297.5" y="20" width="301" height="77"/>
+                                <rect key="frame" x="253.5" y="20" width="160" height="59"/>
                                 <accessibility key="accessibilityConfiguration" hint="levelTwoScreenLabel" identifier="levelTwoScreenLabel" label="Level Two">
                                     <accessibilityTraits key="traits" selected="YES" staticText="YES"/>
                                 </accessibility>
@@ -293,20 +293,20 @@
             <objects>
                 <viewController id="kSh-K8-R0n" customClass="Level2" customModule="Test1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Doe-Qo-ApV">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitten-icon-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="fpf-2S-1px">
-                                <rect key="frame" x="332" y="20" width="232" height="75"/>
+                                <rect key="frame" x="288" y="20" width="91" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Dm0-jJ-j3d"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horizontal-red-line" translatesAutoresizingMaskIntoConstraints="NO" id="V5B-5i-scY">
-                                <rect key="frame" x="406.5" y="103" width="83" height="208"/>
+                                <rect key="frame" x="296" y="103" width="75" height="169"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat-icon-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="bdt-fF-agr">
-                                <rect key="frame" x="332" y="319" width="232" height="75"/>
+                                <rect key="frame" x="288" y="280" width="91" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="zu9-E9-TGP"/>
                                 </constraints>
@@ -381,7 +381,7 @@
             <objects>
                 <viewController storyboardIdentifier="Level3Screen" id="fV3-as-FiO" customClass="Level3Screen" customModule="Test1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IJu-ni-P98">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YhR-3A-8at">
@@ -443,23 +443,20 @@
             <objects>
                 <viewController id="hWi-WS-TWz" customClass="Level3" customModule="Test1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6wg-eD-sPE">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitten-icon-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="a4p-Np-EnB">
-                                <rect key="frame" x="64" y="20" width="231" height="75"/>
+                                <rect key="frame" x="20" y="20" width="90" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="j7q-3i-dZ8"/>
+                                    <constraint firstAttribute="height" constant="75" id="8cK-gV-zkC"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat-icon-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="1hc-fp-7cc">
-                                <rect key="frame" x="601" y="319" width="231" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="jyk-o4-12F"/>
-                                </constraints>
+                                <rect key="frame" x="557" y="280" width="90" height="75"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="horizontal-red-line" translatesAutoresizingMaskIntoConstraints="NO" id="OUK-tH-EP6">
-                                <rect key="frame" x="93" y="150" width="475" height="75"/>
+                                <rect key="frame" x="58" y="150" width="550" height="75"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -469,15 +466,15 @@
                         </accessibility>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="HYr-uc-fwq" firstAttribute="trailing" secondItem="a4p-Np-EnB" secondAttribute="trailing" constant="557" id="3Lk-wY-5lC"/>
-                            <constraint firstItem="1hc-fp-7cc" firstAttribute="leading" secondItem="HYr-uc-fwq" secondAttribute="leading" constant="557" id="NGa-pL-hQu"/>
-                            <constraint firstItem="OUK-tH-EP6" firstAttribute="centerY" secondItem="HYr-uc-fwq" secondAttribute="centerY" id="SFP-sW-RIS"/>
-                            <constraint firstItem="OUK-tH-EP6" firstAttribute="width" secondItem="6wg-eD-sPE" secondAttribute="height" multiplier="19:15" id="Uwi-aW-xKW"/>
-                            <constraint firstItem="a4p-Np-EnB" firstAttribute="top" secondItem="6wg-eD-sPE" secondAttribute="top" constant="20" symbolic="YES" id="V0c-zA-YtA"/>
-                            <constraint firstItem="OUK-tH-EP6" firstAttribute="centerX" secondItem="HYr-uc-fwq" secondAttribute="centerX" id="bCL-Du-OEd"/>
-                            <constraint firstItem="a4p-Np-EnB" firstAttribute="leading" secondItem="6wg-eD-sPE" secondAttribute="leadingMargin" id="dig-Df-ldg"/>
-                            <constraint firstItem="1hc-fp-7cc" firstAttribute="trailing" secondItem="6wg-eD-sPE" secondAttribute="trailingMargin" id="ejE-1F-AcB"/>
-                            <constraint firstAttribute="bottom" secondItem="1hc-fp-7cc" secondAttribute="bottom" constant="20" symbolic="YES" id="tqE-X4-Ma2"/>
+                            <constraint firstItem="a4p-Np-EnB" firstAttribute="top" secondItem="6wg-eD-sPE" secondAttribute="top" constant="20" symbolic="YES" id="KrN-Oz-HnW"/>
+                            <constraint firstItem="1hc-fp-7cc" firstAttribute="leading" secondItem="HYr-uc-fwq" secondAttribute="leading" constant="557" id="Lke-iv-qAb"/>
+                            <constraint firstItem="1hc-fp-7cc" firstAttribute="top" secondItem="OUK-tH-EP6" secondAttribute="bottom" constant="55" id="NOj-ZW-Puo"/>
+                            <constraint firstItem="1hc-fp-7cc" firstAttribute="trailing" secondItem="6wg-eD-sPE" secondAttribute="trailingMargin" id="NTK-jJ-5We"/>
+                            <constraint firstItem="HYr-uc-fwq" firstAttribute="trailing" secondItem="a4p-Np-EnB" secondAttribute="trailing" constant="557" id="OF7-8W-lDy"/>
+                            <constraint firstItem="OUK-tH-EP6" firstAttribute="centerX" secondItem="6wg-eD-sPE" secondAttribute="centerX" id="Xly-Qp-7Ik"/>
+                            <constraint firstItem="a4p-Np-EnB" firstAttribute="leading" secondItem="6wg-eD-sPE" secondAttribute="leadingMargin" id="jDB-ge-k7a"/>
+                            <constraint firstAttribute="bottom" secondItem="1hc-fp-7cc" secondAttribute="bottom" constant="20" symbolic="YES" id="kpY-bv-nmo"/>
+                            <constraint firstItem="OUK-tH-EP6" firstAttribute="centerY" secondItem="6wg-eD-sPE" secondAttribute="centerY" id="pfz-m9-gAY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HYr-uc-fwq"/>
                         <connections>
@@ -504,11 +501,11 @@
             <objects>
                 <viewController storyboardIdentifier="FinalScreen" title="FinalScreen" id="b23-zj-iEi" customClass="FinalScreen" customModule="Test1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k5H-ub-1cV">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sW-4u-iCF">
-                                <rect key="frame" x="263" y="20" width="370" height="80"/>
+                                <rect key="frame" x="148.5" y="20" width="370" height="62"/>
                                 <accessibility key="accessibilityConfiguration" hint="finalScreenLabel" identifier="finalScreenLabel" label="Congratulations!">
                                     <accessibilityTraits key="traits" selected="YES" staticText="YES"/>
                                 </accessibility>
@@ -531,7 +528,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You completed all the levels! Now kitten and cat can play together. If you want to restart the game press the restart button." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njh-ih-6UL">
-                                <rect key="frame" x="64" y="121" width="768" height="151"/>
+                                <rect key="frame" x="20" y="142" width="627" height="91"/>
                                 <accessibility key="accessibilityConfiguration" hint="finalScreenExplanationLabel" identifier="openScreenLabel" label="You completed all the levels! Now kitten and cat can play together. If you want to restart the game press the restart button.">
                                     <accessibilityTraits key="traits" selected="YES" staticText="YES"/>
                                 </accessibility>
@@ -566,7 +563,7 @@
             <objects>
                 <viewController id="d23-7E-EHJ" customClass="OpenScreen" customModule="Test1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KIO-gM-no0">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SOUNDLINES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDj-2h-IxG">
