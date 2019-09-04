@@ -15,7 +15,7 @@ class FinalScreen: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(6), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
             UIAccessibility.post(notification: .announcement, argument: "You completed all the levels! Now kitten and cat can play together. If you want to restart the game press the restart button.")
         })
     }
