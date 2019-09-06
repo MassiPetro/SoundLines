@@ -10,10 +10,12 @@
 		0E45DBFC5E4DADDE5E484864 /* Pods_Test1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB87D00B485815D62CEF5C1 /* Pods_Test1UITests.framework */; };
 		7B44F607363806F7DBBE0599 /* Pods_Test1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A77FD5AB0476B216DF221D /* Pods_Test1.framework */; };
 		8A9C57805EAB383DF6DFD50A /* Pods_Test1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4805FEEE2AC7039F6CF09C2B /* Pods_Test1Tests.framework */; };
-		8B14A5862315A4A800FD2E3D /* soundlines-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BDEDBCB23159FA100D98E43 /* soundlines-logo.png */; };
+		8B139E962322A96500D3FC5A /* kitten.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B139E952322A96500D3FC5A /* kitten.wav */; };
+		8B139E982322A97700D3FC5A /* kitten-icon-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B139E972322A97700D3FC5A /* kitten-icon-1.png */; };
+		8B139E9A2322A98500D3FC5A /* cat-icon-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B139E992322A98500D3FC5A /* cat-icon-1.png */; };
+		8B139E9C2322A9A900D3FC5A /* soundlines-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B139E9B2322A9A900D3FC5A /* soundlines-logo.png */; };
 		8B53558C22DE035C00569401 /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B53558B22DE035C00569401 /* Level2.swift */; };
 		8B53558F22DE210600569401 /* cat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B53558D22DE210600569401 /* cat.wav */; };
-		8B60149623159BC900ECC34F /* kitten.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B60149523159BC900ECC34F /* kitten.wav */; };
 		8B8A081023102DDF00AA8562 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A080F23102DDF00AA8562 /* Utility.swift */; };
 		8BBCAB0723147CFC00115E6E /* FinalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBCAB0623147CFC00115E6E /* FinalScreen.swift */; };
 		8BC2291F231456F70021593E /* OldSansBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BC2291E231456F70021593E /* OldSansBlack.ttf */; };
@@ -22,8 +24,6 @@
 		8BCFC82722E4AB4B00A668A8 /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCFC82622E4AB4B00A668A8 /* Level3.swift */; };
 		8BEDB45722CE550A00BEDAEC /* OpenScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDB45622CE550A00BEDAEC /* OpenScreen.swift */; };
 		8BEDB45922CE578D00BEDAEC /* Level1Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDB45822CE578D00BEDAEC /* Level1Screen.swift */; };
-		8BFC977C2316EC8100272EBB /* cat-icon-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BFC977A2316EC8000272EBB /* cat-icon-1.png */; };
-		8BFC977D2316EC8100272EBB /* kitten-icon-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BFC977B2316EC8000272EBB /* kitten-icon-1.png */; };
 		9EB4505D22B28D8C00AA962B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4505C22B28D8C00AA962B /* AppDelegate.swift */; };
 		9EB4505F22B28D8C00AA962B /* Level2Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB4505E22B28D8C00AA962B /* Level2Screen.swift */; };
 		9EB4506222B28D8C00AA962B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EB4506022B28D8C00AA962B /* Main.storyboard */; };
@@ -71,20 +71,20 @@
 		4805FEEE2AC7039F6CF09C2B /* Pods_Test1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Test1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B5233777D9641BDEC994D82 /* Pods-Test1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test1.release.xcconfig"; path = "Target Support Files/Pods-Test1/Pods-Test1.release.xcconfig"; sourceTree = "<group>"; };
 		7CB87D00B485815D62CEF5C1 /* Pods_Test1UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Test1UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B139E952322A96500D3FC5A /* kitten.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = kitten.wav; sourceTree = "<group>"; };
+		8B139E972322A97700D3FC5A /* kitten-icon-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kitten-icon-1.png"; sourceTree = "<group>"; };
+		8B139E992322A98500D3FC5A /* cat-icon-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cat-icon-1.png"; sourceTree = "<group>"; };
+		8B139E9B2322A9A900D3FC5A /* soundlines-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "soundlines-logo.png"; path = "../../../../Desktop/soundlines-logo.png"; sourceTree = "<group>"; };
 		8B53558B22DE035C00569401 /* Level2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level2.swift; sourceTree = "<group>"; };
 		8B53558D22DE210600569401 /* cat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cat.wav; sourceTree = "<group>"; };
-		8B60149523159BC900ECC34F /* kitten.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = kitten.wav; path = "../../../Università/Test1/kitten.wav"; sourceTree = "<group>"; };
 		8B8A080F23102DDF00AA8562 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = /Users/Fede/Documents/SoundLines/Test1/Test1/Utility.swift; sourceTree = "<absolute>"; };
 		8BBCAB0623147CFC00115E6E /* FinalScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScreen.swift; sourceTree = "<group>"; };
 		8BC2291E231456F70021593E /* OldSansBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OldSansBlack.ttf; sourceTree = "<group>"; };
 		8BC88D20231833A700ABC2D1 /* kitten-icon-large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kitten-icon-large.png"; sourceTree = "<group>"; };
 		8BCFC82422E4AABA00A668A8 /* Level3Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3Screen.swift; sourceTree = "<group>"; };
 		8BCFC82622E4AB4B00A668A8 /* Level3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
-		8BDEDBCB23159FA100D98E43 /* soundlines-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "soundlines-logo.png"; path = "../soundlines-logo.png"; sourceTree = "<group>"; };
 		8BEDB45622CE550A00BEDAEC /* OpenScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenScreen.swift; sourceTree = "<group>"; };
 		8BEDB45822CE578D00BEDAEC /* Level1Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1Screen.swift; sourceTree = "<group>"; };
-		8BFC977A2316EC8000272EBB /* cat-icon-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cat-icon-1.png"; path = "../../../Università/Test1/cat-icon-1.png"; sourceTree = "<group>"; };
-		8BFC977B2316EC8000272EBB /* kitten-icon-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kitten-icon-1.png"; path = "../../../Università/Test1/kitten-icon-1.png"; sourceTree = "<group>"; };
 		9EB4505922B28D8C00AA962B /* Test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EB4505C22B28D8C00AA962B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EB4505E22B28D8C00AA962B /* Level2Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level2Screen.swift; sourceTree = "<group>"; };
@@ -194,12 +194,12 @@
 				9EB4506522B28D8E00AA962B /* LaunchScreen.storyboard */,
 				9EB4506322B28D8E00AA962B /* Assets.xcassets */,
 				9EB4506822B28D8E00AA962B /* Info.plist */,
-				8BFC977A2316EC8000272EBB /* cat-icon-1.png */,
-				8BFC977B2316EC8000272EBB /* kitten-icon-1.png */,
+				8B139E992322A98500D3FC5A /* cat-icon-1.png */,
+				8B139E972322A97700D3FC5A /* kitten-icon-1.png */,
 				8BC88D20231833A700ABC2D1 /* kitten-icon-large.png */,
-				8BDEDBCB23159FA100D98E43 /* soundlines-logo.png */,
+				8B139E9B2322A9A900D3FC5A /* soundlines-logo.png */,
 				8B53558D22DE210600569401 /* cat.wav */,
-				8B60149523159BC900ECC34F /* kitten.wav */,
+				8B139E952322A96500D3FC5A /* kitten.wav */,
 				8BC2291E231456F70021593E /* OldSansBlack.ttf */,
 			);
 			path = Test1;
@@ -331,16 +331,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B14A5862315A4A800FD2E3D /* soundlines-logo.png in Resources */,
 				9EB4506722B28D8E00AA962B /* LaunchScreen.storyboard in Resources */,
-				8BFC977D2316EC8100272EBB /* kitten-icon-1.png in Resources */,
+				8B139E982322A97700D3FC5A /* kitten-icon-1.png in Resources */,
 				9EB4506422B28D8E00AA962B /* Assets.xcassets in Resources */,
 				8BC2291F231456F70021593E /* OldSansBlack.ttf in Resources */,
+				8B139E9A2322A98500D3FC5A /* cat-icon-1.png in Resources */,
 				8BC88D21231833A800ABC2D1 /* kitten-icon-large.png in Resources */,
 				9EB4506222B28D8C00AA962B /* Main.storyboard in Resources */,
-				8B60149623159BC900ECC34F /* kitten.wav in Resources */,
+				8B139E9C2322A9A900D3FC5A /* soundlines-logo.png in Resources */,
+				8B139E962322A96500D3FC5A /* kitten.wav in Resources */,
 				8B53558F22DE210600569401 /* cat.wav in Resources */,
-				8BFC977C2316EC8100272EBB /* cat-icon-1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

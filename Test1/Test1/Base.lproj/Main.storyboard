@@ -170,17 +170,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kitten-icon-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="3qd-aL-Oay">
-                                <rect key="frame" x="20" y="118" width="90" height="139"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="QXr-Vf-lbp"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cat-icon-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="rM0-B7-cqy">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cat-icon-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="rM0-B7-cqy">
                                 <rect key="frame" x="557" y="150" width="90" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="horizontal-red-line" translatesAutoresizingMaskIntoConstraints="NO" id="xnv-tP-sr0">
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="horizontal-red-line" translatesAutoresizingMaskIntoConstraints="NO" id="xnv-tP-sr0">
                                 <rect key="frame" x="114" y="150" width="438" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cat-icon-1.png" translatesAutoresizingMaskIntoConstraints="NO" id="3qd-aL-Oay">
+                                <rect key="frame" x="20" y="150" width="90" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -188,19 +188,6 @@
                             <accessibilityTraits key="traits" allowsDirectInteraction="YES"/>
                             <bool key="isElement" value="YES"/>
                         </accessibility>
-                        <constraints>
-                            <constraint firstItem="3qd-aL-Oay" firstAttribute="top" secondItem="xnv-tP-sr0" secondAttribute="top" id="49V-6T-YHH"/>
-                            <constraint firstItem="xnv-tP-sr0" firstAttribute="centerX" secondItem="BWL-VK-V8C" secondAttribute="centerX" id="5Dz-oF-0Uq"/>
-                            <constraint firstItem="xnv-tP-sr0" firstAttribute="leading" secondItem="3qd-aL-Oay" secondAttribute="trailing" constant="4" id="PTN-f9-blI"/>
-                            <constraint firstItem="3qd-aL-Oay" firstAttribute="centerY" secondItem="BWL-VK-V8C" secondAttribute="centerY" id="Srg-Sv-9Ot"/>
-                            <constraint firstItem="xnv-tP-sr0" firstAttribute="bottom" secondItem="rM0-B7-cqy" secondAttribute="bottom" id="UUd-sR-Mex"/>
-                            <constraint firstItem="3qd-aL-Oay" firstAttribute="leading" secondItem="BWL-VK-V8C" secondAttribute="leadingMargin" id="Zic-Al-BYg"/>
-                            <constraint firstItem="3qd-aL-Oay" firstAttribute="top" secondItem="Eju-E0-VC0" secondAttribute="top" constant="118" id="diJ-QV-HDc"/>
-                            <constraint firstItem="3qd-aL-Oay" firstAttribute="bottom" secondItem="xnv-tP-sr0" secondAttribute="bottom" id="ip6-R6-tgr"/>
-                            <constraint firstItem="rM0-B7-cqy" firstAttribute="trailing" secondItem="BWL-VK-V8C" secondAttribute="trailingMargin" id="rya-UL-Kaq"/>
-                            <constraint firstItem="xnv-tP-sr0" firstAttribute="top" secondItem="rM0-B7-cqy" secondAttribute="top" id="y4V-QO-Ihi"/>
-                            <constraint firstItem="rM0-B7-cqy" firstAttribute="leading" secondItem="xnv-tP-sr0" secondAttribute="trailing" constant="5" id="yFm-Pi-KGK"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Eju-E0-VC0"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="aaf-I2-V94" appends="YES" id="QeT-q9-IYa"/>
@@ -608,9 +595,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cat-icon-1.png" width="200" height="200"/>
+        <image name="cat-icon-1.png" width="200" height="141"/>
         <image name="horizontal-red-line" width="438" height="75"/>
-        <image name="kitten-icon-1.png" width="200" height="141"/>
+        <image name="kitten-icon-1.png" width="598" height="559"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="K2l-RS-Ux1"/>
