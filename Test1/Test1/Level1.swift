@@ -193,7 +193,7 @@ class Level1: UIViewController {
                 
                 // The finger is inside the line
                 
-                if (distPointLine(point: initialPoint) <= 37.5) {
+                if (distPointLine(point: initialPoint) <= Double(redLine.frame.height / 2)) {
                     print("OK: point is inside shape, dist:", distPointLine(point: initialPoint))
                     
                     // 1. Inside the line but not in the center
@@ -213,7 +213,7 @@ class Level1: UIViewController {
                     
                     // 2. At the center of the line
                     
-                    if(distPointLine(point: initialPoint) <= 5) {
+                    if (distPointLine(point: initialPoint) <= 5) {
                         print("Inside the middle line")
                         oscillator2.stop()
                         
