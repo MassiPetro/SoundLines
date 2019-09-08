@@ -44,9 +44,13 @@ class Level2: UIViewController {
         
         try! AudioKit.start()
         
-        // Sets the width of the line image: 60% of screen height
+        // Sets the width of the line image: 50% of screen height
         
-        redLine.frame = CGRect(x:0, y:0, width:75, height:view.frame.size.height * 0.5)
+        let frameHeight = view.frame.size.height * 0.5
+        let aspectRatio = CGFloat(3)
+        let frameWidth = frameHeight / aspectRatio
+        
+        redLine.frame = CGRect(x:0, y:0, width:frameWidth, height:frameHeight)
         
         // Sets a frame for the images: the line image is centered horizontally and vertically
         // while kitten and cat are centered vertically and have some distance from the line image
@@ -54,10 +58,10 @@ class Level2: UIViewController {
         redLine.frame.origin.x = CGFloat(self.view.frame.size.width / 2 - self.redLine.frame.width / 2)
         redLine.frame.origin.y = CGFloat(self.view.frame.size.height / 2 - self.redLine.frame.height / 2)
         
-        kitten.frame.origin.x = CGFloat(self.view.frame.size.width / 2 - self.redLine.frame.width / 2)
+        kitten.frame.origin.x = CGFloat(self.view.frame.size.width / 2 - self.kitten.frame.width / 2)
         kitten.frame.origin.y = redLine.frame.minY - kitten.frame.height - 10.0
         
-        cat.frame.origin.x = CGFloat(self.view.frame.size.width / 2 - self.redLine.frame.width / 2)
+        cat.frame.origin.x = CGFloat(self.view.frame.size.width / 2 - self.cat.frame.width / 2)
         cat.frame.origin.y = redLine.frame.maxY + 10.0
         
         // Hides the kitten label

@@ -46,7 +46,11 @@ class Level1: UIViewController {
         
         // Sets the width of the line image: 60% of screen width
         
-        redLine.frame = CGRect(x:0, y:0, width:view.frame.size.width * 0.6, height:75)
+        let frameWidth = view.frame.size.width * 0.6
+        let aspectRatio = CGFloat(5.336)
+        let frameHeight = frameWidth / aspectRatio
+        
+        redLine.frame = CGRect(x:0, y:0, width:frameWidth, height:frameHeight)
         
         // Sets a frame for the images: the line image is centered horizontally and vertically
         // while kitten and cat are centered vertically and have some distance from the line image
@@ -55,10 +59,10 @@ class Level1: UIViewController {
         redLine.frame.origin.y = CGFloat(self.view.frame.size.height / 2 - self.redLine.frame.height / 2)
         
         kitten.frame.origin.x = redLine.frame.minX - kitten.frame.size.width - 10.0
-        kitten.frame.origin.y = CGFloat(self.view.frame.size.height / 2 - self.redLine.frame.height / 2)
+        kitten.frame.origin.y = CGFloat(self.view.frame.size.height / 2 - kitten.frame.size.height / 2)
         
         cat.frame.origin.x = redLine.frame.maxX + 10.0
-        cat.frame.origin.y = CGFloat(self.view.frame.size.height / 2 - self.redLine.frame.height / 2)
+        cat.frame.origin.y = CGFloat(self.view.frame.size.height / 2 - cat.frame.size.height / 2)
         
         // Hides the kitten label
         

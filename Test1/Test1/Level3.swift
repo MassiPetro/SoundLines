@@ -46,18 +46,28 @@ class Level3: UIViewController {
         
         try! AudioKit.start()
         
+        // Sets the width of the line image: 40% of screen width
+        
+        redLine.frame = CGRect(x:0, y:0, width:view.frame.size.width * 0.4, height:view.frame.size.width * 0.4)
+        
+        // Sets a frame for the images: the line image is centered horizontally and vertically
+        // while kitten and cat are centered vertically and have some distance from the line image
+        
+        redLine.frame.origin.x = CGFloat(self.view.frame.size.width / 2 - self.redLine.frame.width / 2)
+        redLine.frame.origin.y = CGFloat(self.view.frame.size.height / 2 - self.redLine.frame.height / 2)
+        
         // Hides the kitten label
         
         kitten.isHidden = true
         
         // Hides the graphical line
         
-        line.isHidden = true
+        redLine.isHidden = true
         
         // Calculates diagonalAngle and rotates the image representing the line accordingly
         
         diagonalAngle = Double(atan(self.view.frame.size.height / self.view.frame.size.width))
-        self.line.transform = CGAffineTransform(rotationAngle: CGFloat(diagonalAngle))
+        self.redLine.transform = CGAffineTransform(rotationAngle: CGFloat(diagonalAngle))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,7 +80,7 @@ class Level3: UIViewController {
     
     @IBOutlet var kitten: UIImageView!
     @IBOutlet var cat: UIImageView!
-    @IBOutlet var line: UIImageView!
+    @IBOutlet var redLine: UIImageView!
     
     var gameStarted: Bool = false
     
@@ -155,7 +165,7 @@ class Level3: UIViewController {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                         
-                        self.line.isHidden = false
+                        self.redLine.isHidden = false
                         
                         // Start the game
                         
