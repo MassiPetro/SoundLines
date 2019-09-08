@@ -48,10 +48,13 @@ class Level3: UIViewController {
         
         // Sets the width of the line image: 40% of screen width
         
-        redLine.frame = CGRect(x:0, y:0, width:view.frame.size.width * 0.4, height:view.frame.size.width * 0.4)
+        let frameWidth = view.frame.size.width * 0.6
+        let aspectRatio = CGFloat(5.336)
+        let frameHeight = frameWidth / aspectRatio
+        
+        redLine.frame = CGRect(x:0, y:0, width:frameWidth, height:frameHeight)
         
         // Sets a frame for the images: the line image is centered horizontally and vertically
-        // while kitten and cat are centered vertically and have some distance from the line image
         
         redLine.frame.origin.x = CGFloat(self.view.frame.size.width / 2 - self.redLine.frame.width / 2)
         redLine.frame.origin.y = CGFloat(self.view.frame.size.height / 2 - self.redLine.frame.height / 2)
@@ -68,6 +71,27 @@ class Level3: UIViewController {
         
         diagonalAngle = Double(atan(self.view.frame.size.height / self.view.frame.size.width))
         self.redLine.transform = CGAffineTransform(rotationAngle: CGFloat(diagonalAngle))
+        
+        // Sets the position of the kitten and cat images: they are placed on the diagonal line
+        // between the two screen angles
+        
+        let kittenMinX = redLine.frame.minX - kitten.frame.size.width / 2
+        let kittenMinY = redLine.frame.minY - kitten.frame.size.height / 2
+        let kittenOldCenter = CGPoint(x:kittenMinX, y:kittenMinY)
+        
+        let kittenDistance = distPointLine(point: kittenOldCenter)
+        
+        kitten.frame.origin.x = kittenMinX - CGFloat(kittenDistance)
+        kitten.frame.origin.y = kittenMinY
+        
+        let catMaxX = redLine.frame.maxX //- cat.frame.size.width / 2
+        let catMaxY = redLine.frame.maxY - cat.frame.size.height / 2
+        let catOldCenter = CGPoint(x:catMaxX, y:catMaxY)
+        
+        let catDistance = distPointLine(point: catOldCenter)
+        
+        cat.frame.origin.x = catMaxX
+        cat.frame.origin.y = catMaxY - CGFloat(catDistance)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -198,7 +222,11 @@ class Level3: UIViewController {
                 
                 // The finger is inside the line
                 
-                if (distPointLine(point: initialPoint) <= 37.5) {
+                let frameWidth = view.frame.size.width * 0.6
+                let aspectRatio = CGFloat(5.336)
+                let frameHeight = frameWidth / aspectRatio
+                
+                if (distPointLine(point: initialPoint) <= Double(frameHeight / 2)) {
                     print("OK: point is inside shape, dist:", distPointLine(point: initialPoint))
                     
                     // 1. Inside the line but not in the center
