@@ -283,7 +283,7 @@ class Level2: UIViewController {
             
             gestureRecognizer.isEnabled = false
             
-            UIAccessibility.post(notification: .announcement, argument: "Level 2 completed")
+            UIAccessibility.post(notification: .announcement, argument: "Well done! Level 2 completed")
             
             do {
                 self.catSound = try AVAudioPlayer(contentsOf: catSoundUrl)
