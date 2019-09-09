@@ -9,11 +9,12 @@
 import UIKit
 
 class OpenScreen: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = true;
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -24,4 +25,6 @@ class OpenScreen: UIViewController {
         })
 
     }
+    
+    @IBOutlet var screenButton: UIButton!
 }

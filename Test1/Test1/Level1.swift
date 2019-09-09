@@ -73,6 +73,7 @@ class Level1: UIViewController {
         
         kitten.isHidden = true
         redLine.isHidden = true
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -86,6 +87,7 @@ class Level1: UIViewController {
     @IBOutlet var cat: UIImageView!
     @IBOutlet var kitten: UIImageView!
     @IBOutlet var redLine: UIImageView!
+    
     
     var gameStarted: Bool = false
     
