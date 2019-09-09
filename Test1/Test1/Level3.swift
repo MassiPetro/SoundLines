@@ -54,6 +54,11 @@ class Level3: UIViewController {
         
         redLine.frame = CGRect(x:0, y:0, width:frameWidth, height:frameHeight)
         
+        // Sets dimensions of kitten and cat images
+        
+        kitten.frame = CGRect(x:0, y:0, width: frameHeight, height: frameHeight)
+        cat.frame = CGRect(x:0, y:0, width: frameHeight, height: frameHeight)
+        
         // Sets a frame for the images: the line image is centered horizontally and vertically
         
         redLine.frame.origin.x = CGFloat(self.view.frame.size.width / 2 - self.redLine.frame.width / 2)
@@ -84,13 +89,14 @@ class Level3: UIViewController {
         kitten.frame.origin.x = kittenMinX - CGFloat(kittenDistance)
         kitten.frame.origin.y = kittenMinY
         
-        let catMaxX = redLine.frame.maxX //- cat.frame.size.width / 2
+        let catMaxX = redLine.frame.maxX - cat.frame.size.width / 2
         let catMaxY = redLine.frame.maxY - cat.frame.size.height / 2
         let catOldCenter = CGPoint(x:catMaxX, y:catMaxY)
         
         let catDistance = distPointLine(point: catOldCenter)
+        print(catDistance)
         
-        cat.frame.origin.x = catMaxX
+        cat.frame.origin.x = catMaxX + 11 * CGFloat(catDistance)
         cat.frame.origin.y = catMaxY - CGFloat(catDistance)
     }
     

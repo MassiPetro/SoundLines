@@ -52,6 +52,11 @@ class Level1: UIViewController {
         
         redLine.frame = CGRect(x:0, y:0, width:frameWidth, height:frameHeight)
         
+        // Sets dimensions of kitten and cat images
+        
+        kitten.frame = CGRect(x:0, y:0, width: frameHeight, height: frameHeight)
+        cat.frame = CGRect(x:0, y:0, width: frameHeight, height: frameHeight)
+        
         // Sets a frame for the images: the line image is centered horizontally and vertically
         // while kitten and cat are centered vertically and have some distance from the line image
         
