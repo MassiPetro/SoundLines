@@ -32,8 +32,17 @@ class Level1Screen: UIViewController {
         screenText.frame = CGRect(x: 0, y: 0, width: screenWidth * 0.8, height: screenHeight * 0.4)
         screenText.center = self.view.center
         
+        // Sets constant to multiply for button: different between iPhone and iPad
+        
+        var screenHeighMultiplicationConstant = CGFloat()
+        if screenWidth >= 1024 {
+            screenHeighMultiplicationConstant = 0.15
+        } else {
+            screenHeighMultiplicationConstant = 0.2
+        }
+        
         screenButton.sizeToFit()
-        screenButton.frame = CGRect(x: 0, y: 0, width: screenWidth * 0.3, height: screenHeight * 0.2)
+        screenButton.frame = CGRect(x: 0, y: 0, width: screenWidth * 0.3, height: screenHeight * screenHeighMultiplicationConstant)
         screenButton.center.x = self.view.center.x
         screenButton.center.y = self.view.center.y + screenHeight * 0.3
         
