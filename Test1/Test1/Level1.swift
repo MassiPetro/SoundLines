@@ -168,6 +168,7 @@ class Level1: UIViewController {
                     print("kitten: tap")
                     
                     kittenFound = kittenFound + 1
+                    print(kittenFound)
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                         
@@ -316,10 +317,10 @@ class Level1: UIViewController {
         }
         
         if kittenFound == 1 {
-            
             do {
                 kittenSound = try AVAudioPlayer(contentsOf: kittenSoundUrl)
                 kittenSound?.play()
+                
             } catch {
                 // couldn't load file :(
             }
