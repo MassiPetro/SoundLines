@@ -39,61 +39,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOUNDLINES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Peh-fI-cTt">
-                                <rect key="frame" x="20" y="52" width="627" height="62"/>
-                                <accessibility key="accessibilityConfiguration" label="SoundLines">
-                                    <accessibilityTraits key="traits" selected="YES" staticText="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="62" id="Qou-ek-jKx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="OldSansBlack" family="OldSansBlack" pointSize="52"/>
-                                <color key="textColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFe-j2-OfH">
-                                <rect key="frame" x="233" y="275" width="200" height="80"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbW-8i-4HC">
+                                <rect key="frame" x="233" y="275" width="201" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="hN9-s3-PcG"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="OldSansBlack" family="OldSansBlack" pointSize="30"/>
                                 <state key="normal" title="PLAY">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="OldSansBlack" family="OldSansBlack" pointSize="60"/>
+                                </variation>
                                 <connections>
-                                    <segue destination="BeI-sM-HcF" kind="show" id="iwI-sh-yqw"/>
+                                    <segue destination="BeI-sM-HcF" kind="show" id="3FC-VO-rcK"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2qA-6l-CAy">
-                                <rect key="frame" x="20" y="142" width="627" height="90"/>
-                                <accessibility key="accessibilityConfiguration" hint="openScreenLabel" identifier="openScreenLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SOUNDLINES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTg-g5-sJR">
+                                <rect key="frame" x="181" y="53" width="305" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="openScreenLabel" label="SOUNDLINES">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="OldSansBlack" family="OldSansBlack" pointSize="50"/>
+                                <color key="textColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="OldSansBlack" family="OldSansBlack" pointSize="100"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSb-K1-Oj8">
+                                <rect key="frame" x="58" y="143" width="550" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" hint="openScreenExplanationLabel" identifier="openScreenExplanationLabel">
                                     <string key="label">Help a kitten play with its cat friend: you just need to connect them with a line! Ready? Press the play button to start the game.</string>
-                                    <accessibilityTraits key="traits" selected="YES" staticText="YES"/>
-                                    <bool key="isElement" value="YES"/>
+                                    <accessibilityTraits key="traits" staticText="YES"/>
                                 </accessibility>
                                 <string key="text">Help a kitten play with its cat friend: you just need to connect them with a line! Ready? Press the play button to start the game.</string>
-                                <fontDescription key="fontDescription" name="OldSansBlack" family="OldSansBlack" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="OldSansBlack" family="OldSansBlack" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="OldSansBlack" family="OldSansBlack" pointSize="40"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Peh-fI-cTt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="IqI-q9-PWa"/>
-                            <constraint firstItem="2qA-6l-CAy" firstAttribute="top" secondItem="Peh-fI-cTt" secondAttribute="bottom" constant="28" id="Jn2-cJ-Pm1"/>
-                            <constraint firstItem="Peh-fI-cTt" firstAttribute="trailing" secondItem="2qA-6l-CAy" secondAttribute="trailing" id="KPd-n3-xzD"/>
-                            <constraint firstItem="NFe-j2-OfH" firstAttribute="top" secondItem="2qA-6l-CAy" secondAttribute="bottom" constant="43" id="Ndh-vd-HEr"/>
-                            <constraint firstAttribute="bottom" secondItem="NFe-j2-OfH" secondAttribute="bottom" constant="20" symbolic="YES" id="PXF-F3-S3v"/>
-                            <constraint firstItem="Peh-fI-cTt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ttu-uG-M0r"/>
-                            <constraint firstItem="NFe-j2-OfH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="233" id="ULy-zK-riq"/>
-                            <constraint firstItem="2qA-6l-CAy" firstAttribute="centerX" secondItem="NFe-j2-OfH" secondAttribute="centerX" id="j22-JN-8tK"/>
-                            <constraint firstItem="Peh-fI-cTt" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="tzh-Si-lCJ"/>
-                            <constraint firstItem="Peh-fI-cTt" firstAttribute="leading" secondItem="2qA-6l-CAy" secondAttribute="leading" id="vcl-Ju-gZW"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="rDh-WF-J5g"/>
+                    <connections>
+                        <outlet property="screenButton" destination="VbW-8i-4HC" id="Ndc-So-i4W"/>
+                        <outlet property="screenText" destination="HSb-K1-Oj8" id="nsA-nJ-xeQ"/>
+                        <outlet property="screenTitle" destination="DTg-g5-sJR" id="Q1x-aZ-fwk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -529,9 +527,6 @@
                         <viewLayoutGuide key="safeArea" id="lcb-Y4-w28"/>
                     </view>
                     <navigationItem key="navigationItem" id="YNT-PO-54g"/>
-                    <connections>
-                        <outlet property="screenButton" destination="V5V-nE-sHF" id="xsR-K8-93S"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Caz-21-jd7" sceneMemberID="firstResponder"/>
             </objects>
@@ -544,6 +539,6 @@
         <image name="kitten-icon.png" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="K2l-RS-Ux1"/>
+        <segue reference="3FC-VO-rcK"/>
     </inferredMetricsTieBreakers>
 </document>
