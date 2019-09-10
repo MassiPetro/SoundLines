@@ -172,11 +172,11 @@ class Level1: UIViewController {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                         
-                        self.redLine.isHidden = false
-                        
-                        // Start the game
-                        
-                        self.gameStarted = true
+                    self.redLine.isHidden = false
+                    
+                    // Start the game
+                    
+                    self.gameStarted = true
                     })
                 } else {
                     kittenFound = 0
@@ -319,8 +319,9 @@ class Level1: UIViewController {
         if kittenFound == 1 {
             do {
                 kittenSound = try AVAudioPlayer(contentsOf: kittenSoundUrl)
-                kittenSound?.play()
-                
+                if !kittenSound!.isPlaying { // TODO: mettere la variabile nel non opzionale
+                    kittenSound?.play()
+                }
             } catch {
                 // couldn't load file :(
             }
